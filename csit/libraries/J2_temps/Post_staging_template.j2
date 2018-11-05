@@ -1,0 +1,236 @@
+{
+	"versanms.sdwan-template-workflow": {
+		"templateName": "{{ PS_TEMPLATE_NAME }}",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["{{ WC1_NAME }}", "{{ WC2_NAME }}"],
+		"providerOrg": {
+			"name": "{{ ORG_NAME }}",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "{{ MPLS_WAN_INTF }}",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "{{ INT_WAN_INTF }}",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "{{ LAN_INTF }}",
+			"unitInfo": [{
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN6_Unit-5__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN6_Unit-5__vlanId}",
+				"networkName": "LAN6",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN6-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN7_Unit-6__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN7_Unit-6__vlanId}",
+				"networkName": "LAN7",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN7-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN8_Unit-7__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN8_Unit-7__vlanId}",
+				"networkName": "LAN8",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN8-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN9_Unit-8__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN9_Unit-8__vlanId}",
+				"networkName": "LAN9",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN9-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN10_Unit-9__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN10_Unit-9__vlanId}",
+				"networkName": "LAN10",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN10-VRF",
+				"zoneName": ""
+			}]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [{
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN3-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN4-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN5-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN6-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN7-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN8-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN9-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN10-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}],
+		"inBoundNats": []
+	}
+}
+

@@ -1,0 +1,149 @@
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} description "MPLS-WAN"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} bandwidth uplink "5000"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} bandwidth downlink "5000"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ INT_WAN_INTF }} description "INT-WAN"
+
+set devices template {{ PS_TEMPLATE_NAME }} config system vnf-manager ip-addresses [ {{ Vnf_ipaddress1 }} {{ Vnf_ipaddress2 }} ]
+set devices template {{ PS_TEMPLATE_NAME }} config system service-options qos-frame-overhead auto-adjust true
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} hold-time 90
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart enable
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart maximum-restart-time 15
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart recovery-time 15
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart select-defer-time 15
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart stalepath-time 15
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart dynamic-peer-restart-time 0
+
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term Wildcard action community {{ LCC }}:10
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community {{ LCC }}:10
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} group Controllers-Group export TO_SDWAN
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc send-to controller
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 management-traffic priority 0
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc send-to controller
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be send-to branches
+
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone W-ST-LAN1-VRF-INT-WAN Intf-LAN2-Zone W-ST-LAN2-VRF-INT-WAN Intf-LAN3-Zone W-ST-LAN3-VRF-INT-WAN Intf-LAN4-Zone W-ST-LAN4-VRF-INT-WAN Intf-LAN5-Zone W-ST-LAN5-VRF-INT-WAN Intf-LAN6-Zone W-ST-LAN6-VRF-INT-WAN Intf-LAN7-Zone W-ST-LAN7-VRF-INT-WAN Intf-LAN8-Zone W-ST-LAN8-VRF-INT-WAN Intf-LAN9-Zone W-ST-LAN9-VRF-INT-WAN Intf-LAN10-Zone W-ST-LAN10-VRF-INT-WAN ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN L-ST-LAN6-VRF-INT-WAN L-ST-LAN7-VRF-INT-WAN L-ST-LAN8-VRF-INT-WAN L-ST-LAN9-VRF-INT-WAN L-ST-LAN10-VRF-INT-WAN ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN L-ST-LAN6-VRF-INT-WAN L-ST-LAN7-VRF-INT-WAN L-ST-LAN8-VRF-INT-WAN L-ST-LAN9-VRF-INT-WAN L-ST-LAN10-VRF-INT-WAN ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business1 forwarding-class fc13	
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service IPSEC protocol UDP
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service IPSEC destination-port 4790,4500,500
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service IPSecAH protocol AH
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service IPSIPSecAH protocol AH
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service DHCP-67 protocol UDP
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service DHCP-67 port 67
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service DHCP-68 protocol UDP
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} objects services service DHCP-68 port 68
+delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} security access-policies access-policy-group Default-Policy
+
+{% for vrf_id in range(start_vrf_id, start_vrf_id+10) %}
+{% set lan_number = loop.index %}
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance LAN{{ lan_number }}-VRF vrf-import-target target:{{ vrf_id }}L:{{ vrf_id }}2
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance LAN{{ lan_number }}-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance LAN{{ lan_number }}-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance LAN{{ lan_number }}-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance LAN{{ lan_number }}-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+
+{% endfor %}
+
+set devices template {{ PS_TEMPLATE_NAME }} config snmp usm local user coltuser auth sha password Colt1234
+set devices template {{ PS_TEMPLATE_NAME }} config system time-zone Greenwich
+set devices template {{ PS_TEMPLATE_NAME }} config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template {{ PS_TEMPLATE_NAME }} config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template {{ PS_TEMPLATE_NAME }} config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+

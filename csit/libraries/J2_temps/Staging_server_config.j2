@@ -1,0 +1,2 @@
+set devices device {{ STAGING_SERVER }} config orgs org-services {{ STAGING_ORG }} ipsec vpn-profile {{ STAGING_PROFILE_NAME }} psk-auth-clients remote-client {{ STAGING_ID }} id-type {{ STAGING_id_type }}
+set devices device {{ STAGING_SERVER }} config orgs org-services {{ STAGING_ORG }} ipsec vpn-profile {{ STAGING_PROFILE_NAME }} psk-auth-clients remote-client {{ STAGING_ID }} key {{ STAGING_KEY }}

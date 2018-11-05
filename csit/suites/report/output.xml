@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181031 12:30:29.492" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/sathish123/PycharmProjects/SDWAN_OOP/csit/suites/SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="VM Pre Op" library="VM1">
+<msg timestamp="20181031 12:30:53.894" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f6c9320dad0&gt;
+[sudo] password for admin: 
+CPE1-N2-BLR:~# 
+exit
+linux: admin@NV-CPE1-N2-BLR:~$
+sudo bash
+sudo bash
+root@NV-CPE1-N2-BLR:~# 
+versa123
+versa123
+versa123: command not found
+root@NV-CPE1-N2-BLR:~# 
+exit
+exit
+exit
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1 up
+sudo ifconfig eth1 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 730
+sudo vconfig add eth1 730
+ERROR: trying to add VLAN #730 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.730 up
+sudo ifconfig eth1.730 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255.0
+sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev eth1.730
+sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev 
+ eth1.730
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 731
+sudo vconfig add eth1 731
+ERROR: trying to add VLAN #731 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.731 up
+sudo ifconfig eth1.731 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255.0
+sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev eth1.731
+sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev 
+ eth1.731
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 732
+sudo vconfig add eth1 732
+ERROR: trying to add VLAN #732 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.732 up
+sudo ifconfig eth1.732 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255.0
+sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev eth1.732
+sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev 
+ eth1.732
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 733
+sudo vconfig add eth1 733
+ERROR: trying to add VLAN #733 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.733 up
+sudo ifconfig eth1.733 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255.0
+sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev eth1.733
+sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev 
+ eth1.733
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 734
+sudo vconfig add eth1 734
+ERROR: trying to add VLAN #734 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.734 up
+sudo ifconfig eth1.734 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255.0
+sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev eth1.734
+sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev 
+ eth1.734
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 735
+sudo vconfig add eth1 735
+ERROR: trying to add VLAN #735 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.735 up
+sudo ifconfig eth1.735 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255.0
+sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev eth1.735
+sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev 
+ eth1.735
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 736
+sudo vconfig add eth1 736
+ERROR: trying to add VLAN #736 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.736 up
+sudo ifconfig eth1.736 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255.0
+sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev eth1.736
+sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev 
+ eth1.736
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 737
+sudo vconfig add eth1 737
+ERROR: trying to add VLAN #737 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.737 up
+sudo ifconfig eth1.737 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255.0
+sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev eth1.737
+sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev 
+ eth1.737
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 738
+sudo vconfig add eth1 738
+ERROR: trying to add VLAN #738 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.738 up
+sudo ifconfig eth1.738 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255.0
+sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev eth1.738
+sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev 
+ eth1.738
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 739
+sudo vconfig add eth1 739
+ERROR: trying to add VLAN #739 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.739 up
+sudo ifconfig eth1.739 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255.0
+sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev eth1.739
+sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev 
+ eth1.739
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$</msg>
+<status status="PASS" endtime="20181031 12:30:53.895" starttime="20181031 12:30:30.470"></status>
+</kw>
+<kw name="VM Pre Op" library="VM2">
+<msg timestamp="20181031 12:31:16.848" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f6c93228c90&gt;
+[sudo] password for admin: 
+VM-CPE-02:~# 
+exit
+linux: admin@NV-VM-CPE-02:~$
+sudo bash
+sudo bash
+root@NV-VM-CPE-02:~# 
+versa123
+versa123
+versa123: command not found
+root@NV-VM-CPE-02:~# 
+exit
+exit
+exit
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1 up
+sudo ifconfig eth1 up
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 740
+sudo vconfig add eth1 740
+ERROR: trying to add VLAN #740 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.740 up
+sudo ifconfig eth1.740 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0
+sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev eth1.740
+sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev e 
+th1.740
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 741
+sudo vconfig add eth1 741
+ERROR: trying to add VLAN #741 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.741 up
+sudo ifconfig eth1.741 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0
+sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev eth1.741
+sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev e 
+th1.741
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 742
+sudo vconfig add eth1 742
+ERROR: trying to add VLAN #742 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.742 up
+sudo ifconfig eth1.742 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0
+sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev eth1.742
+sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev e 
+th1.742
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 743
+sudo vconfig add eth1 743
+ERROR: trying to add VLAN #743 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.743 up
+sudo ifconfig eth1.743 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0
+sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev eth1.743
+sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev e 
+th1.743
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 744
+sudo vconfig add eth1 744
+ERROR: trying to add VLAN #744 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.744 up
+sudo ifconfig eth1.744 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0
+sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev eth1.744
+sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev e 
+th1.744
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 745
+sudo vconfig add eth1 745
+ERROR: trying to add VLAN #745 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.745 up
+sudo ifconfig eth1.745 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0
+sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev eth1.745
+sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev e 
+th1.745
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 746
+sudo vconfig add eth1 746
+ERROR: trying to add VLAN #746 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.746 up
+sudo ifconfig eth1.746 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0
+sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev eth1.746
+sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev e 
+th1.746
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 747
+sudo vconfig add eth1 747
+ERROR: trying to add VLAN #747 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.747 up
+sudo ifconfig eth1.747 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0
+sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev eth1.747
+sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev e 
+th1.747
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 748
+sudo vconfig add eth1 748
+ERROR: trying to add VLAN #748 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.748 up
+sudo ifconfig eth1.748 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0
+sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev eth1.748
+sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev e 
+th1.748
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 749
+sudo vconfig add eth1 749
+ERROR: trying to add VLAN #749 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.749 up
+sudo ifconfig eth1.749 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0
+sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev eth1.749
+sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev e 
+th1.749
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$</msg>
+<status status="PASS" endtime="20181031 12:31:16.849" starttime="20181031 12:30:53.895"></status>
+</kw>
+<kw name="Get Data Dict" library="VM1">
+<assign>
+<var>${vm1_data}</var>
+</assign>
+<msg timestamp="20181031 12:31:16.851" level="INFO">${vm1_data} = {'peer_lan_second_host': {736: '192.169.247.2', 737: '192.169.248.2', 738: '192.169.249.2', 739: '192.169.250.2', 730: '192.169.241.2', 731: '192.169.242.2', 732: '192.169.243.2', 733: '192.169.244.2'...</msg>
+<status status="PASS" endtime="20181031 12:31:16.851" starttime="20181031 12:31:16.849"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${vm1_data}</arg>
+</arguments>
+<msg timestamp="20181031 12:31:16.854" level="INFO">${vm1_data} = {'peer_lan_second_host': {736: '192.169.247.2', 737: '192.169.248.2', 738: '192.169.249.2', 739: '192.169.250.2', 730: '192.169.241.2', 731: '192.169.242.2', 732: '192.169.243.2', 733: '192.169.244.2'...</msg>
+<status status="PASS" endtime="20181031 12:31:16.854" starttime="20181031 12:31:16.852"></status>
+</kw>
+<kw name="Get Data Dict" library="VM2">
+<assign>
+<var>${vm2_data}</var>
+</assign>
+<msg timestamp="20181031 12:31:16.856" level="INFO">${vm2_data} = {'peer_lan_second_host': {740: '192.169.231.2', 741: '192.169.232.2', 742: '192.169.233.2', 743: '192.169.234.2', 744: '192.169.235.2', 745: '192.169.236.2', 746: '192.169.237.2', 747: '192.169.238.2'...</msg>
+<status status="PASS" endtime="20181031 12:31:16.856" starttime="20181031 12:31:16.855"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${vm2_data}</arg>
+</arguments>
+<msg timestamp="20181031 12:31:16.859" level="INFO">${vm2_data} = {'peer_lan_second_host': {740: '192.169.231.2', 741: '192.169.232.2', 742: '192.169.233.2', 743: '192.169.234.2', 744: '192.169.235.2', 745: '192.169.236.2', 746: '192.169.237.2', 747: '192.169.238.2'...</msg>
+<status status="PASS" endtime="20181031 12:31:16.859" starttime="20181031 12:31:16.857"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:16.859" starttime="20181031 12:30:30.469"></status>
+</kw>
+<test id="s1-t1" name="Ping Test VM1 to VM2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${vm1_data['peer_lan_second_host'][${vm1_data['lan_vlan'][0]}]}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20181031 12:31:16.863" level="INFO">${destip} = 192.169.241.2</msg>
+<status status="PASS" endtime="20181031 12:31:16.863" starttime="20181031 12:31:16.861"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20181031 12:31:21.475" level="INFO">sudo ping 192.169.241.2 -c 5
+PING 192.169.241.2 (192.169.241.2) 56(84) bytes of data.
+64 bytes from 192.169.241.2: icmp_seq=1 ttl=62 time=15.8 ms
+64 bytes from 192.169.241.2: icmp_seq=2 ttl=62 time=8.02 ms
+64 bytes from 192.169.241.2: icmp_seq=3 ttl=62 time=5.37 ms
+64 bytes from 192.169.241.2: icmp_seq=4 ttl=62 time=6.51 ms
+64 bytes from 192.169.241.2: icmp_seq=5 ttl=62 time=5.65 ms
+
+--- 192.169.241.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4009ms
+rtt min/avg/max/mdev = 5.376/8.280/15.828/3.885 ms
+admin@NV-CPE1-N2-BLR:~$ </msg>
+<msg timestamp="20181031 12:31:21.475" level="INFO">sudo ping 192.169.241.2 -c 5</msg>
+<msg timestamp="20181031 12:31:21.476" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20181031 12:31:21.476" starttime="20181031 12:31:16.863"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:21.479" starttime="20181031 12:31:21.478"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:21.480" starttime="20181031 12:31:21.479"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:21.481" starttime="20181031 12:31:21.481"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:21.482" starttime="20181031 12:31:21.480"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:21.482" starttime="20181031 12:31:21.476"></status>
+</kw>
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<status status="PASS" endtime="20181031 12:31:21.482" critical="yes" starttime="20181031 12:31:16.860"></status>
+</test>
+<test id="s1-t2" name="Ping Test VM2 to VM1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${vm2_data['peer_lan_second_host'][${vm2_data['lan_vlan'][0]}]}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20181031 12:31:21.486" level="INFO">${destip} = 192.169.231.2</msg>
+<status status="PASS" endtime="20181031 12:31:21.486" starttime="20181031 12:31:21.484"></status>
+</kw>
+<kw name="Shell Ping" library="VM2">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20181031 12:31:26.097" level="INFO">sudo ping 192.169.231.2 -c 5
+PING 192.169.231.2 (192.169.231.2) 56(84) bytes of data.
+64 bytes from 192.169.231.2: icmp_seq=1 ttl=62 time=9.88 ms
+64 bytes from 192.169.231.2: icmp_seq=2 ttl=62 time=4.02 ms
+64 bytes from 192.169.231.2: icmp_seq=3 ttl=62 time=5.55 ms
+64 bytes from 192.169.231.2: icmp_seq=4 ttl=62 time=9.16 ms
+64 bytes from 192.169.231.2: icmp_seq=5 ttl=62 time=9.30 ms
+
+--- 192.169.231.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 4.025/7.587/9.885/2.348 ms
+admin@NV-VM-CPE-02:~$ </msg>
+<msg timestamp="20181031 12:31:26.098" level="INFO">sudo ping 192.169.231.2 -c 5</msg>
+<msg timestamp="20181031 12:31:26.098" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20181031 12:31:26.098" starttime="20181031 12:31:21.486"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:26.100" starttime="20181031 12:31:26.100"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:26.101" starttime="20181031 12:31:26.101"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:26.104" starttime="20181031 12:31:26.103"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:26.104" starttime="20181031 12:31:26.102"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:26.105" starttime="20181031 12:31:26.099"></status>
+</kw>
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<status status="PASS" endtime="20181031 12:31:26.105" critical="yes" starttime="20181031 12:31:21.483"></status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"sasasa"</arg>
+</arguments>
+<status status="PASS" endtime="20181031 12:31:26.108" starttime="20181031 12:31:26.108"></status>
+</kw>
+<status status="PASS" endtime="20181031 12:31:26.109" starttime="20181031 12:31:26.107"></status>
+</kw>
+<doc>A test suite with tests for SDWAN HYBRID Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK IF IP ADDRESS IS SET AND INTERFACE IS UP.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="PASS" endtime="20181031 12:31:26.109" starttime="20181031 12:30:29.494"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="2">HYBRID</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="2">SINGLE CPE HYBRID SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

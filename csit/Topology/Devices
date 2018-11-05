@@ -1,0 +1,3 @@
+DUTs,device_name_in_vd,ip,username,password,device_type,port
+C1,CPE-26,10.91.116.233,admin,versa123,versa,22
+C2,CPE-27,10.91.116.234,admin,versa123,versa,22
