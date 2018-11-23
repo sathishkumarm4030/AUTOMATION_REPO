@@ -1,0 +1,28 @@
+{
+  "vni": {
+    "name": "vni-0/1",
+    "description": "MPLS-WAN",
+    "enable": false,
+    "unit": [
+      {
+        "name": 0,
+        "enable": true,
+        "family": {
+          "inet": {
+            "address": [
+              {
+                "addr": "172.16.4.94/30"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "bandwidth": {
+      "uplink": "5000",
+      "downlink": "5000"
+    },
+    "ether-options": {},
+    "promiscuous": false
+  }
+}

@@ -52,11 +52,14 @@ class LinuxLib:
         self.device_name = device_name
         self.data = csv_data_read.loc[csv_data_read['DUTs'] == device_name]
         self.csv_dict = self.data.set_index('DUTs').T.to_dict()
-        for k, v in self.csv_dict[self.device_name].iteritems(): exec ("self." + k + '=v')
+        for k, v in self.csv_dict[self.device_name].iteritems(): exec("self."+ k+'=v')
         self.vlans = []
         self.start_vlan = int(self.start_vlan)
         # for vlan in range(self.start_vlan'], self.start_vlan']+10):
         #     print vlan
+        self.data_dict = {}
+        for i, k  in self.csv_dict[self.device_name].iteritems():
+            self.data_dict[i] = k
         self.set_network_items(self.Start_lan_ip_subnet)
         self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
         if self.device_type == 'versa':
@@ -64,76 +67,146 @@ class LinuxLib:
             self.Site_id = int(self.Site_id)
             self.LCC = int(self.LCC)
             self.vxlan_tvi_interface = self.ORG_ID * 2
-            self.esp_tvi_interface = self.ORG_ID * 2 + 1
+            self.esp_tvi_interface = self.ORG_ID * 2 +1
             self.start_vrf_id = self.ORG_ID * 10 + 120
             self.vddata = csv_data_read.loc[csv_data_read['DUTs'] == 'VD1']
             self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
             self.vddata_dict = {}
-            for i, k in self.vdcsv_dict['VD1'].iteritems():
-                # print i
-                # print k
+            for i, k  in self.vdcsv_dict['VD1'].iteritems():
                 self.vddata_dict[i] = k
-            # print self.vddata_dict
             self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
+        # print self.data_dict
+        self.data_dict['vlans'] = []
+        self.data_dict['start_vlan'] = int(self.data_dict['start_vlan'])
+        if self.data_dict['device_type'] == 'versa':
+            self.data_dict['ORG_ID'] = int(self.data_dict['ORG_ID'])
+            self.data_dict['Site_id'] = int(self.data_dict['Site_id'])
+            self.data_dict['LCC'] = int(self.data_dict['LCC'])
+            self.data_dict['vxlan_tvi_interface'] = self.data_dict['ORG_ID'] * 2
+            self.data_dict['esp_tvi_interface'] = self.data_dict['ORG_ID'] * 2 +1
+            self.data_dict['start_vrf_id'] = self.data_dict['ORG_ID'] * 10 + 120
         logger.info("intialized", also_console=True)
 
     def get_data_dict(self):
-        return self.data_dict
+        return self.__dict__
 
     def set_vlan_items(self, start_vlan):
         self.lan_vlan = []
+        self.data_dict['lan_vlan'] = []
         self.lan = {}
         vlan_id_genr = (i for i in range(start_vlan, start_vlan + 11))
         for i in range(1, 11):
             self.lan[i] = {}
             lan_value = next(vlan_id_genr)
             self.lan_vlan.append(lan_value)
+            self.data_dict['lan_vlan'].append(lan_value)
             self.lan[i]['vlan'] = lan_value
         return
 
+    # def set_vlan_items(self, start_vlan):
+    #     self.data_dict['lan_vlan'] = []
+    #     vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
+    #     for i in range(1, 11):
+    #         nw_addr = next(vlan_id_genr)
+    #         self.data_dict['lan_vlan'].append(nw_addr)
+    #     return
+
+
     def set_network_items(self, start_lan_ip_subnet):
         self.set_vlan_items(self.start_vlan)
-        self.lan_network = {}
-        self.lan_first_host = {}
-        self.lan_second_host = {}
-        self.lan_netmask = {}
+        self.data_dict['lan_network'] = {}
+        self.data_dict['lan_first_host'] = {}
+        self.data_dict['lan_second_host'] = {}
+        self.data_dict['lan_netmask'] = {}
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
-        # self.lan_network']['1'] = network
-        # n = ipaddress.ip_network(network)
-        # self.lan_first_host']['1'] = str(n[1])
-        # self.lan_second_host']['1'] = str(n[2])
         nw_addr = network
         for i in self.lan_vlan:
-            self.lan_network[i] = nw_addr
+            self.data_dict['lan_network'][i] = nw_addr
             n = ipaddress.ip_network(nw_addr)
-            self.lan_first_host[i] = str(n[1])
-            self.lan_second_host[i] = str(n[2])
-            self.lan_netmask[i] = str(n.netmask)
+            self.data_dict['lan_first_host'][i] = str(n[1])
+            self.data_dict['lan_second_host'][i] = str(n[2])
+            self.data_dict['lan_netmask'][i] = str(n.netmask)
+            nw_addr = next(network_address)
+        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network_address = (network + (i + 1) * network.size() for i in it.count())
+        nw_addr = network
+        for i in range(1, 11):
+            self.lan[i]['nw'] = nw_addr
+            n = ipaddress.ip_network(nw_addr)
+            self.lan[i]['first_host'] = str(n[1])
+            self.lan[i]['second_host'] = str(n[2])
+            self.lan[i]['netmask'] = str(n.netmask)
             nw_addr = next(network_address)
         return
 
+
+    # def set_network_items(self, start_lan_ip_subnet):
+    #     self.set_vlan_items(self.start_vlan)
+    #     self.lan_network = {}
+    #     self.lan_first_host = {}
+    #     self.lan_second_host = {}
+    #     self.lan_netmask = {}
+    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network_address = (network + (i + 1) * network.size() for i in it.count())
+    #     nw_addr = network
+    #     for i in range(1, 11):
+    #         self.lan[i]['nw'] = nw_addr
+    #         n = ipaddress.ip_network(nw_addr)
+    #         self.lan[i]['first_host'] = str(n[1])
+    #         self.lan[i]['second_host'] = str(n[2])
+    #         self.lan[i]['netmask'] = str(n.netmask)
+    #         nw_addr = next(network_address)
+    #     return
+
+
     def set_peer_network_items(self, start_lan_ip_subnet):
-        self.set_vlan_items(self.start_vlan)
-        self.peer_lan_network = {}
-        self.peer_lan_first_host = {}
-        self.peer_lan_second_host = {}
-        self.peer_lan_netmask = {}
+        #self.set_vlan_items(self.start_vlan)
+        self.data_dict['peer_lan_network'] = {}
+        self.data_dict['peer_lan_first_host'] = {}
+        self.data_dict['peer_lan_second_host'] = {}
+        self.data_dict['peer_lan_netmask'] = {}
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
-        # self.lan_network']['1'] = network
-        # n = ipaddress.ip_network(network)
-        # self.lan_first_host']['1'] = str(n[1])
-        # self.lan_second_host']['1'] = str(n[2])
         nw_addr = network
         for i in self.lan_vlan:
-            self.peer_lan_network[i] = nw_addr
+            self.data_dict['peer_lan_network'][i] = nw_addr
             n = ipaddress.ip_network(nw_addr)
-            self.peer_lan_first_host[i] = str(n[1])
-            self.peer_lan_second_host[i] = str(n[2])
-            self.peer_lan_netmask[i] = str(n.netmask)
+            self.data_dict['peer_lan_first_host'][i] = str(n[1])
+            self.data_dict['peer_lan_second_host'][i] = str(n[2])
+            self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
+            nw_addr = next(network_address)
+        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network_address = (network + (i + 1) * network.size() for i in it.count())
+        nw_addr = network
+        for i in range(1, 11):
+            self.lan[i]['peer_nw'] = nw_addr
+            n = ipaddress.ip_network(nw_addr)
+            self.lan[i]['peer_first_host'] = str(n[1])
+            self.lan[i]['peer_second_host'] = str(n[2])
+            self.lan[i]['peer_netmask'] = str(n.netmask)
             nw_addr = next(network_address)
         return
+
+    # def set_peer_network_items(self, start_lan_ip_subnet):
+    #     self.set_vlan_items(self.start_vlan)
+    #     self.peer_lan_network = {}
+    #     self.peer_lan_first_host = {}
+    #     self.peer_lan_second_host = {}
+    #     self.peer_lan_netmask = {}
+    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network_address = (network + (i + 1) * network.size() for i in it.count())
+    #     nw_addr = network
+    #     for i in self.lan_vlan:
+    #         self.peer_lan_network[i] = nw_addr
+    #         n = ipaddress.ip_network(nw_addr)
+    #         self.peer_lan_first_host[i] = str(n[1])
+    #         self.peer_lan_second_host[i] = str(n[2])
+    #         self.peer_lan_netmask[i] = str(n.netmask)
+    #         nw_addr = next(network_address)
+    #     return
+
+
 
     def print_args(self):
         # print(self.data_dict)
@@ -246,10 +319,10 @@ class LinuxLib:
         else:
             print response.content
             return 'FAIL'
-        # data = response.json()
-        # print data
-        # taskid = str(data['output']['result']['task']['task-id'])
-        # return taskid
+            # data = response.json()
+            # print data
+            # taskid = str(data['output']['result']['task']['task-id'])
+            # return taskid
 
     def rest_operation_ret_task_id(self, url, headers, body=""):
         if body != "":
@@ -483,13 +556,13 @@ class LinuxLib:
         self.linux_device_config_commands(self.VM_nc, "versa123", expect_string="#")
         self.linux_device_config_commands(self.VM_nc, "exit", expect_string="\$")
         self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + self.LAN_INTF + " up")
-        for vlan in self.lan_vlan:
-            intf = str(self.LAN_INTF)
-            ip = str(self.lan_second_host[vlan])
-            gw = str(self.lan_first_host[vlan])
-            nmask = str(self.lan_netmask[vlan])
-            destination_nw = str(self.peer_lan_network[vlan])
-            vlan = str(vlan)
+        intf = str(self.LAN_INTF)
+        for i in range(1, 11):
+            ip = str(self.lan[i]['second_host'])
+            gw = str(self.lan[i]['first_host'])
+            nmask = str(self.lan[i]['netmask'])
+            destination_nw = str(self.lan[i]['peer_nw'])
+            vlan = str(self.lan[i]['vlan'])
             self.linux_device_config_commands(self.VM_nc, "sudo vconfig add " + intf + " " + vlan)
             self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + intf + "." + vlan + " up")
             self.linux_device_config_commands(self.VM_nc,
@@ -511,8 +584,19 @@ class LinuxLib:
         # logger.info(output, also_console=True)
         return str(" 0% packet loss" in output)
 
+    def ping(self, dest_ip, **kwargs):
+        cmd = "ping " + str(dest_ip)
+        paramlist = ['count', 'df_bit', 'interface', 'packet_size', 'rapid', 'record-route', 'routing_instance',
+                     'source']
+        for element in paramlist:
+            if element in kwargs.keys():
+                cmd = cmd + " " + element.replace('_', '-') + " " + str(kwargs[element])
+        print cmd
+        output = self.shell_nc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return str(" 0% packet loss" in output)
 
-    def send_commands_and_expect(self, cmds, expect_string=">|%"):
+    def send_commands_and_expect(self, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
             print cmd
             output = self.shell_nc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
@@ -527,14 +611,18 @@ def main():
     print datetime.now()
     VM1 = LinuxLib('VM1_MUM', fileDir + "/Topology/Devices.csv")
     VM2 = LinuxLib('VM2_MUM', fileDir + "/Topology/Devices.csv")
-    VM1_data = VM1.get_data_dict()
-    print VM1_data
+    #VM1_data = VM1.get_data_dict()
+    #print VM1_data
     VM1.VM_nc = VM1.shell_login()
     VM2.VM_nc = VM2.shell_login()
+    VM2.send_commands_and_expect("pkill iperf3 &")
     VM1.VM_pre_op()
     VM2.VM_pre_op()
-    print VM1.shell_ping(VM1.data_dict['peer_lan_second_host'][VM1.data_dict['lan_vlan'][0]])
-    print VM2.shell_ping(VM2.data_dict['peer_lan_second_host'][VM2.data_dict['lan_vlan'][0]])
+    print VM1.shell_ping(VM2.lan[1]['first_host'])
+    print VM1.shell_ping(VM2.lan[1]['second_host'])
+    print VM2.shell_ping(VM1.lan[1]['first_host'])
+    print VM2.shell_ping(VM1.lan[1]['second_host'])
+    # print VM1.shell_ping(VM2[])
     print datetime.now()
 
 

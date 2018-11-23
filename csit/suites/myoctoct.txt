@@ -1,0 +1,1595 @@
+==============================================================================
+20181120 16:56:38.307 - INFO - + START SUITE: SINGLE CPE HYBRID SOLUTION TEST [ ]
+==============================================================================
+20181120 16:56:38.307 - INFO - +- START SETUP: STARTUP [ ]
+20181120 16:56:38.308 - INFO - +-- START KW: CPE1.Cross Login [ ]
+20181120 16:56:38.554 - DEBUG - Adding ssh-rsa host key for 10.91.116.35: 741b621cf9d4cb2075247ff9e4013f91
+20181120 16:56:38.656 - DEBUG - [chan 0] Max packet in: 32768 bytes
+20181120 16:56:39.765 - DEBUG - read_channel:              .---.,                                 
+            (      ``.                             
+       _     \        )    __      ________ _____   _____                
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\           
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \          
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \         
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \        
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\       
+           \  | /  
+            \_|/               ___ ___ ___ ___ ___ _____ ___  ___ 
+                              |   \_ _| _ \ __/ __|_   _/ _ \| _ \
+                              | |) | ||   / _| (__  | || (_) |   /
+                              |___/___|_|_\___\___| |_| \___/|_|_\
+                                    
+
+
+Release     : 16.1R2
+Release date: 20180903
+Package ID  : b70e005
+
+ *****************************************************************************
+ *                            IMPORTANT NOTICE                               *
+ * Access to this network is restricted to COLT authorised users and is      *
+ * permitted only for legitimate business purposes and only on the terms and *
+ * conditions of COLT's Acceptable Use Policy.  Your electronic login to     *
+ * this network indicates acceptance of the terms and conditions of COLT's   *
+ * Acceptable Use Policy.                                                    *
+ *                                                                           *
+ * COLT reserves the right to audit the network, in accordance with the      *
+ * Logging and Monitoring Policy.                                            *
+ *                                                                           *
+ *****************************************************************************
+
+Last login: Tue Nov 20 11:14:39 2018 from 10.91.124.96
+admin@Versa-Dir-BLR-1:~$
+20181120 16:56:39.866 - DEBUG - read_channel:
+20181120 16:56:41.869 - DEBUG - read_channel:
+20181120 16:56:41.870 - DEBUG - write_channel:
+20181120 16:56:41.970 - DEBUG - read_channel: 
+admin@Versa-Dir-BLR-1:~$
+20181120 16:56:41.971 - DEBUG - write_channel: cli
+20181120 16:56:42.272 - DEBUG - read_channel: cli
+
+             .---.,                                 
+            (      ``.                             
+       _     \        )    __      ________ _____   _____                
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\           
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \          
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \         
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \        
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\       
+           \  | /  
+            \_|/               ___ ___ ___ ___ ___ _____ ___  ___ 
+                              |   \_ _| _ \ __/ __|_   _/ _ \| _ \
+                              | |) | ||   / _| (__  | || (_) |   /
+                              |___/___|_|_\___\___| |_| \___/|_|_\
+                                    
+
+
+
+Administrator connected from 10.91.124.96 using ssh on Versa-Dir-BLR-1
+[?7hAdministrator@Versa-Dir-BLR-1>
+20181120 16:56:42.273 - DEBUG - read_channel:
+20181120 16:56:42.274 - DEBUG - write_channel:
+20181120 16:56:42.374 - DEBUG - read_channel: 
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:42.475 - DEBUG - read_channel:
+20181120 16:56:42.576 - DEBUG - read_channel:
+20181120 16:56:42.577 - DEBUG - In disable_paging
+20181120 16:56:42.577 - DEBUG - Command: set screen length 0
+20181120 16:56:42.577 - DEBUG - write_channel: set screen length 0
+20181120 16:56:42.578 - DEBUG - Pattern is: Administrator\@Versa\-Dir\-BLR\-1
+20181120 16:56:42.580 - DEBUG - _read_channel_expect read_data: set
+20181120 16:56:42.681 - DEBUG - _read_channel_expect read_data:  screen length 0
+[ok][2018-11-20 11:23:05]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:42.681 - DEBUG - Pattern found: Administrator\@Versa\-Dir\-BLR\-1 set screen length 0
+[ok][2018-11-20 11:23:05]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:42.681 - DEBUG - set screen length 0
+[ok][2018-11-20 11:23:05]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:42.682 - DEBUG - Exiting disable_paging
+20181120 16:56:42.682 - DEBUG - write_channel: set screen width 0
+20181120 16:56:42.683 - DEBUG - Pattern is: Administrator\@Versa\-Dir\-BLR\-1
+20181120 16:56:42.684 - DEBUG - _read_channel_expect read_data: set
+20181120 16:56:42.785 - DEBUG - _read_channel_expect read_data:  screen width 0
+[ok][2018-11-20 11:23:05]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:42.785 - DEBUG - Pattern found: Administrator\@Versa\-Dir\-BLR\-1 set screen width 0
+[ok][2018-11-20 11:23:05]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:43.086 - DEBUG - read_channel:
+20181120 16:56:48.091 - DEBUG - read_channel:
+20181120 16:56:48.092 - DEBUG - write_channel:
+20181120 16:56:48.193 - DEBUG - read_channel: 
+Administrator@Versa-Dir-BLR-1>
+20181120 16:56:48.294 - DEBUG - read_channel:
+20181120 16:56:48.294 - DEBUG - write_channel: ssh admin@20.20.16.26
+20181120 16:56:53.299 - DEBUG - read_channel: ssh admin@20.20.16.26
+admin@20.20.16.26's password:
+20181120 16:56:53.300 - DEBUG - write_channel: versa123
+20181120 16:56:58.305 - DEBUG - read_channel: 
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Tue Nov 20 11:20:03 2018 from 10.91.192.243
+admin@FEEFAUTO-CPE26:~$
+20181120 16:56:59.407 - DEBUG - read_channel:
+20181120 16:57:01.409 - DEBUG - read_channel:
+20181120 16:57:01.409 - DEBUG - write_channel:
+20181120 16:57:01.620 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE26:~$
+20181120 16:57:01.721 - DEBUG - read_channel:
+20181120 16:57:03.723 - DEBUG - read_channel:
+20181120 16:57:03.724 - DEBUG - write_channel:
+20181120 16:57:03.824 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE26:~$
+20181120 16:57:03.825 - DEBUG - write_channel: cli
+20181120 16:57:04.126 - DEBUG - read_channel: cli
+Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                   _  _ ___ _______      _____  ___ _  _____
+                                  | \| | __|_   _\ \    / / _ \| _ \ |/ / __|
+                                  | .` | _|  | |  \ \/\/ / (_) |   / ' <\__ \
+                                  |_|\_|___| |_|   \_/\_/ \___/|_|_\_|\_\___/
+
+
+
+admin connected from 10.91.116.67 using ssh on FEEFAUTO-CPE26
+[?7hadmin@FEEFAUTO-CPE26-cli>
+20181120 16:57:04.126 - DEBUG - read_channel:
+20181120 16:57:04.128 - DEBUG - write_channel:
+20181120 16:57:04.228 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:04.329 - DEBUG - read_channel:
+20181120 16:57:04.430 - DEBUG - read_channel:
+20181120 16:57:04.430 - DEBUG - In disable_paging
+20181120 16:57:04.430 - DEBUG - Command: set screen length 0
+20181120 16:57:04.431 - DEBUG - write_channel: set screen length 0
+20181120 16:57:04.431 - DEBUG - Pattern is: admin\@FEEFAUTO\-CPE26\-cli
+20181120 16:57:04.495 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:04.597 - DEBUG - _read_channel_expect read_data:  screen
+20181120 16:57:04.697 - DEBUG - _read_channel_expect read_data:  length
+20181120 16:57:04.798 - DEBUG - _read_channel_expect read_data:  0
+20181120 16:57:04.899 - DEBUG - _read_channel_expect read_data: [ok][2018-11-20 11:23:24]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:04.899 - DEBUG - Pattern found: admin\@FEEFAUTO\-CPE26\-cli set screen length 0
+[ok][2018-11-20 11:23:24]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:04.900 - DEBUG - set screen length 0
+[ok][2018-11-20 11:23:24]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:04.900 - DEBUG - Exiting disable_paging
+20181120 16:57:04.901 - DEBUG - write_channel: set screen width 0
+20181120 16:57:04.901 - DEBUG - Pattern is: admin\@FEEFAUTO\-CPE26\-cli
+20181120 16:57:04.965 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:05.066 - DEBUG - _read_channel_expect read_data:  screen
+20181120 16:57:05.167 - DEBUG - _read_channel_expect read_data:  width 0
+20181120 16:57:05.268 - DEBUG - _read_channel_expect read_data: [ok][2018-11-20 11:23:25]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:05.268 - DEBUG - Pattern found: admin\@FEEFAUTO\-CPE26\-cli set screen width 0
+[ok][2018-11-20 11:23:25]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:57:05.569 - DEBUG - read_channel:
+20181120 16:57:07.571 - INFO - <netmiko.versa.versa_ssh.VersaSSH object at 0x7effcd9ff410>
+versa: Administrator@Versa-Dir-BLR-1>
+ssh admin@20.20.16.26
+admin@20.20.16.26's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Tue Nov 20 11:20:03 2018 from 10.91.192.243
+admin@FEEFAUTO-CPE26:~$ 
+doing redispatch
+20181120 16:57:07.572 - INFO - /usr/lib/python2.7/dist-packages/Crypto/Cipher/blockalgo.py:141: FutureWarning: CTR mode needs counter parameter, not IV
+  self._cipher = factory.new(key, *args, **kwargs)
+20181120 16:57:07.573 - INFO - +-- END KW: CPE1.Cross Login (29265)
+20181120 16:57:07.574 - INFO - +-- START KW: CPE2.Cross Login [ ]
+20181120 16:57:07.800 - DEBUG - Adding ssh-rsa host key for 10.91.116.35: 741b621cf9d4cb2075247ff9e4013f91
+20181120 16:57:07.902 - DEBUG - [chan 0] Max packet in: 32768 bytes
+20181120 16:57:09.011 - DEBUG - read_channel:              .---.,                                 
+            (      ``.                             
+       _     \        )    __      ________ _____   _____                
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\           
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \          
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \         
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \        
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\       
+           \  | /  
+            \_|/               ___ ___ ___ ___ ___ _____ ___  ___ 
+                              |   \_ _| _ \ __/ __|_   _/ _ \| _ \
+                              | |) | ||   / _| (__  | || (_) |   /
+                              |___/___|_|_\___\___| |_| \___/|_|_\
+                                    
+
+
+Release     : 16.1R2
+Release date: 20180903
+Package ID  : b70e005
+
+ *****************************************************************************
+ *                            IMPORTANT NOTICE                               *
+ * Access to this network is restricted to COLT authorised users and is      *
+ * permitted only for legitimate business purposes and only on the terms and *
+ * conditions of COLT's Acceptable Use Policy.  Your electronic login to     *
+ * this network indicates acceptance of the terms and conditions of COLT's   *
+ * Acceptable Use Policy.                                                    *
+ *                                                                           *
+ * COLT reserves the right to audit the network, in accordance with the      *
+ * Logging and Monitoring Policy.                                            *
+ *                                                                           *
+ *****************************************************************************
+
+Last login: Tue Nov 20 11:23:01 2018 from 10.91.124.96
+admin@Versa-Dir-BLR-1:~$
+20181120 16:57:09.113 - DEBUG - read_channel:
+20181120 16:57:11.115 - DEBUG - read_channel:
+20181120 16:57:11.116 - DEBUG - write_channel:
+20181120 16:57:11.217 - DEBUG - read_channel: 
+admin@Versa-Dir-BLR-1:~$
+20181120 16:57:11.218 - DEBUG - write_channel: cli
+20181120 16:57:11.519 - DEBUG - read_channel: cli
+
+             .---.,                                 
+            (      ``.                             
+       _     \        )    __      ________ _____   _____                
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\           
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \          
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \         
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \        
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\       
+           \  | /  
+            \_|/               ___ ___ ___ ___ ___ _____ ___  ___ 
+                              |   \_ _| _ \ __/ __|_   _/ _ \| _ \
+                              | |) | ||   / _| (__  | || (_) |   /
+                              |___/___|_|_\___\___| |_| \___/|_|_\
+                                    
+
+
+
+Administrator connected from 10.91.124.96 using ssh on Versa-Dir-BLR-1
+[?7hAdministrator@Versa-Dir-BLR-1>
+20181120 16:57:11.519 - DEBUG - read_channel:
+20181120 16:57:11.520 - DEBUG - write_channel:
+20181120 16:57:11.620 - DEBUG - read_channel: 
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:11.721 - DEBUG - read_channel:
+20181120 16:57:11.822 - DEBUG - read_channel:
+20181120 16:57:11.822 - DEBUG - In disable_paging
+20181120 16:57:11.823 - DEBUG - Command: set screen length 0
+20181120 16:57:11.823 - DEBUG - write_channel: set screen length 0
+20181120 16:57:11.824 - DEBUG - Pattern is: Administrator\@Versa\-Dir\-BLR\-1
+20181120 16:57:11.825 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:11.926 - DEBUG - _read_channel_expect read_data:  screen length 0
+[ok][2018-11-20 11:23:34]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:11.927 - DEBUG - Pattern found: Administrator\@Versa\-Dir\-BLR\-1 set screen length 0
+[ok][2018-11-20 11:23:34]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:11.927 - DEBUG - set screen length 0
+[ok][2018-11-20 11:23:34]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:11.928 - DEBUG - Exiting disable_paging
+20181120 16:57:11.928 - DEBUG - write_channel: set screen width 0
+20181120 16:57:11.929 - DEBUG - Pattern is: Administrator\@Versa\-Dir\-BLR\-1
+20181120 16:57:11.930 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:12.031 - DEBUG - _read_channel_expect read_data:  screen width 0
+[ok][2018-11-20 11:23:34]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:12.032 - DEBUG - Pattern found: Administrator\@Versa\-Dir\-BLR\-1 set screen width 0
+[ok][2018-11-20 11:23:34]
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:12.332 - DEBUG - read_channel:
+20181120 16:57:17.336 - DEBUG - read_channel:
+20181120 16:57:17.337 - DEBUG - write_channel:
+20181120 16:57:17.438 - DEBUG - read_channel: 
+Administrator@Versa-Dir-BLR-1>
+20181120 16:57:17.539 - DEBUG - read_channel:
+20181120 16:57:17.539 - DEBUG - write_channel: ssh admin@20.20.16.27
+20181120 16:57:22.543 - DEBUG - read_channel: ssh admin@20.20.16.27
+admin@20.20.16.27's password:
+20181120 16:57:22.544 - DEBUG - write_channel: versa123
+20181120 16:57:27.546 - DEBUG - read_channel: 
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Tue Nov 20 11:11:11 2018 from 10.91.116.67
+admin@FEEFAUTO-CPE27:~$
+20181120 16:57:28.647 - DEBUG - read_channel:
+20181120 16:57:30.650 - DEBUG - read_channel:
+20181120 16:57:30.651 - DEBUG - write_channel:
+20181120 16:57:30.862 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE27:~$
+20181120 16:57:30.963 - DEBUG - read_channel:
+20181120 16:57:32.965 - DEBUG - read_channel:
+20181120 16:57:32.966 - DEBUG - write_channel:
+20181120 16:57:33.066 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE27:~$
+20181120 16:57:33.067 - DEBUG - write_channel: cli
+20181120 16:57:33.368 - DEBUG - read_channel: cli
+Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                   _  _ ___ _______      _____  ___ _  _____
+                                  | \| | __|_   _\ \    / / _ \| _ \ |/ / __|
+                                  | .` | _|  | |  \ \/\/ / (_) |   / ' <\__ \
+                                  |_|\_|___| |_|   \_/\_/ \___/|_|_\_|\_\___/
+
+
+
+admin connected from 10.91.116.67 using ssh on FEEFAUTO-CPE27
+[?7hadmin@FEEFAUTO-CPE27-cli>
+20181120 16:57:33.369 - DEBUG - read_channel:
+20181120 16:57:33.369 - DEBUG - write_channel:
+20181120 16:57:33.470 - DEBUG - read_channel: 
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:33.570 - DEBUG - read_channel:
+20181120 16:57:33.671 - DEBUG - read_channel:
+20181120 16:57:33.671 - DEBUG - In disable_paging
+20181120 16:57:33.672 - DEBUG - Command: set screen length 0
+20181120 16:57:33.672 - DEBUG - write_channel: set screen length 0
+20181120 16:57:33.673 - DEBUG - Pattern is: admin\@FEEFAUTO\-CPE27\-cli
+20181120 16:57:33.737 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:33.838 - DEBUG - _read_channel_expect read_data:  screen
+20181120 16:57:33.939 - DEBUG - _read_channel_expect read_data:  length
+20181120 16:57:34.040 - DEBUG - _read_channel_expect read_data:  0
+[ok][2018-11-20 11:23:54]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:34.040 - DEBUG - Pattern found: admin\@FEEFAUTO\-CPE27\-cli set screen length 0
+[ok][2018-11-20 11:23:54]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:34.041 - DEBUG - set screen length 0
+[ok][2018-11-20 11:23:54]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:34.041 - DEBUG - Exiting disable_paging
+20181120 16:57:34.041 - DEBUG - write_channel: set screen width 0
+20181120 16:57:34.042 - DEBUG - Pattern is: admin\@FEEFAUTO\-CPE27\-cli
+20181120 16:57:34.106 - DEBUG - _read_channel_expect read_data: set
+20181120 16:57:34.207 - DEBUG - _read_channel_expect read_data:  screen
+20181120 16:57:34.308 - DEBUG - _read_channel_expect read_data:  width
+20181120 16:57:34.408 - DEBUG - _read_channel_expect read_data:  0
+[ok][2018-11-20 11:23:54]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:34.409 - DEBUG - Pattern found: admin\@FEEFAUTO\-CPE27\-cli set screen width 0
+[ok][2018-11-20 11:23:54]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:57:34.710 - DEBUG - read_channel:
+20181120 16:57:36.712 - INFO - <netmiko.versa.versa_ssh.VersaSSH object at 0x7effcd998550>
+versa: Administrator@Versa-Dir-BLR-1>
+ssh admin@20.20.16.27
+admin@20.20.16.27's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Tue Nov 20 11:11:11 2018 from 10.91.116.67
+admin@FEEFAUTO-CPE27:~$ 
+doing redispatch
+20181120 16:57:36.714 - INFO - +-- END KW: CPE2.Cross Login (29140)
+20181120 16:57:36.714 - INFO - +-- START KW: VM1.VM Pre Op [ ]
+20181120 16:57:36.970 - DEBUG - Adding ssh-rsa host key for 10.83.44.40: 53ea5862cb0626d78885e5127da41681
+20181120 16:57:37.072 - DEBUG - [chan 0] Max packet in: 32768 bytes
+20181120 16:57:38.295 - DEBUG - read_channel: Last login: Tue Nov 20 11:06:26 2018 from 10.91.124.96
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:38.396 - DEBUG - read_channel:
+20181120 16:57:40.399 - DEBUG - read_channel:
+20181120 16:57:40.400 - DEBUG - read_channel:
+20181120 16:57:40.401 - DEBUG - write_channel:
+20181120 16:57:40.501 - DEBUG - read_channel: 
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:40.602 - DEBUG - read_channel:
+20181120 16:57:40.903 - DEBUG - read_channel:
+20181120 16:57:41.104 - DEBUG - read_channel:
+20181120 16:57:41.105 - DEBUG - write_channel: sudo bash
+20181120 16:57:41.105 - DEBUG - read_channel:
+20181120 16:57:41.306 - DEBUG - read_channel: sudo bash
+[sudo] password for admin:
+20181120 16:57:41.507 - DEBUG - read_channel:
+20181120 16:57:41.508 - DEBUG - write_channel: versa123
+20181120 16:57:41.509 - DEBUG - read_channel:
+20181120 16:57:41.710 - DEBUG - read_channel: 
+root@NV-CPE1-N2-BLR:~#
+20181120 16:57:41.911 - DEBUG - read_channel:
+20181120 16:57:41.911 - DEBUG - write_channel: exit
+20181120 16:57:41.912 - DEBUG - read_channel:
+20181120 16:57:42.113 - DEBUG - read_channel: exit
+exit
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:42.113 - DEBUG - read_channel:
+20181120 16:57:42.114 - DEBUG - write_channel:
+20181120 16:57:42.214 - DEBUG - read_channel: 
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:42.315 - DEBUG - read_channel:
+20181120 16:57:42.516 - DEBUG - read_channel:
+20181120 16:57:42.517 - DEBUG - write_channel: sudo bash
+20181120 16:57:42.517 - DEBUG - read_channel:
+20181120 16:57:42.718 - DEBUG - read_channel: sudo bash
+root@NV-CPE1-N2-BLR:~#
+20181120 16:57:42.919 - DEBUG - read_channel:
+20181120 16:57:42.920 - DEBUG - write_channel: versa123
+20181120 16:57:42.920 - DEBUG - read_channel:
+20181120 16:57:43.121 - DEBUG - read_channel: versa123
+versa123: command not found
+root@NV-CPE1-N2-BLR:~#
+20181120 16:57:43.322 - DEBUG - read_channel:
+20181120 16:57:43.323 - DEBUG - write_channel: exit
+20181120 16:57:43.323 - DEBUG - read_channel:
+20181120 16:57:43.524 - DEBUG - read_channel: exit
+exit
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:43.725 - DEBUG - read_channel:
+20181120 16:57:43.726 - DEBUG - write_channel: sudo ifconfig eth1 up
+20181120 16:57:43.726 - DEBUG - read_channel:
+20181120 16:57:43.927 - DEBUG - read_channel: sudo ifconfig eth1 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:44.128 - DEBUG - read_channel:
+20181120 16:57:44.129 - DEBUG - write_channel: sudo vconfig add eth1 730
+20181120 16:57:44.129 - DEBUG - read_channel:
+20181120 16:57:44.330 - DEBUG - read_channel: sudo vconfig add eth1 730
+ERROR: trying to add VLAN #730 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:44.531 - DEBUG - read_channel:
+20181120 16:57:44.531 - DEBUG - write_channel: sudo ifconfig eth1.730 up
+20181120 16:57:44.532 - DEBUG - read_channel:
+20181120 16:57:44.732 - DEBUG - read_channel: sudo ifconfig eth1.730 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:44.933 - DEBUG - read_channel:
+20181120 16:57:44.934 - DEBUG - write_channel: sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255.0
+20181120 16:57:44.935 - DEBUG - read_channel:
+20181120 16:57:45.135 - DEBUG - read_channel: sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:45.336 - DEBUG - read_channel:
+20181120 16:57:45.337 - DEBUG - write_channel: sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev eth1.730
+20181120 16:57:45.338 - DEBUG - read_channel:
+20181120 16:57:45.538 - DEBUG - read_channel: sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev  eth1.730
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:45.739 - DEBUG - read_channel:
+20181120 16:57:45.740 - DEBUG - write_channel: sudo vconfig add eth1 731
+20181120 16:57:45.740 - DEBUG - read_channel:
+20181120 16:57:45.941 - DEBUG - read_channel: sudo vconfig add eth1 731
+ERROR: trying to add VLAN #731 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:46.142 - DEBUG - read_channel:
+20181120 16:57:46.143 - DEBUG - write_channel: sudo ifconfig eth1.731 up
+20181120 16:57:46.143 - DEBUG - read_channel:
+20181120 16:57:46.344 - DEBUG - read_channel: sudo ifconfig eth1.731 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:46.545 - DEBUG - read_channel:
+20181120 16:57:46.546 - DEBUG - write_channel: sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255.0
+20181120 16:57:46.546 - DEBUG - read_channel:
+20181120 16:57:46.747 - DEBUG - read_channel: sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:46.948 - DEBUG - read_channel:
+20181120 16:57:46.949 - DEBUG - write_channel: sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev eth1.731
+20181120 16:57:46.949 - DEBUG - read_channel:
+20181120 16:57:47.150 - DEBUG - read_channel: sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev  eth1.731
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:47.351 - DEBUG - read_channel:
+20181120 16:57:47.352 - DEBUG - write_channel: sudo vconfig add eth1 732
+20181120 16:57:47.352 - DEBUG - read_channel:
+20181120 16:57:47.553 - DEBUG - read_channel: sudo vconfig add eth1 732
+ERROR: trying to add VLAN #732 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:47.754 - DEBUG - read_channel:
+20181120 16:57:47.755 - DEBUG - write_channel: sudo ifconfig eth1.732 up
+20181120 16:57:47.755 - DEBUG - read_channel:
+20181120 16:57:47.956 - DEBUG - read_channel: sudo ifconfig eth1.732 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:48.157 - DEBUG - read_channel:
+20181120 16:57:48.158 - DEBUG - write_channel: sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255.0
+20181120 16:57:48.158 - DEBUG - read_channel:
+20181120 16:57:48.359 - DEBUG - read_channel: sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:48.560 - DEBUG - read_channel:
+20181120 16:57:48.560 - DEBUG - write_channel: sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev eth1.732
+20181120 16:57:48.561 - DEBUG - read_channel:
+20181120 16:57:48.761 - DEBUG - read_channel: sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev  eth1.732
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:48.963 - DEBUG - read_channel:
+20181120 16:57:48.964 - DEBUG - write_channel: sudo vconfig add eth1 733
+20181120 16:57:48.964 - DEBUG - read_channel:
+20181120 16:57:49.165 - DEBUG - read_channel: sudo vconfig add eth1 733
+ERROR: trying to add VLAN #733 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:49.366 - DEBUG - read_channel:
+20181120 16:57:49.367 - DEBUG - write_channel: sudo ifconfig eth1.733 up
+20181120 16:57:49.367 - DEBUG - read_channel:
+20181120 16:57:49.568 - DEBUG - read_channel: sudo ifconfig eth1.733 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:49.769 - DEBUG - read_channel:
+20181120 16:57:49.769 - DEBUG - write_channel: sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255.0
+20181120 16:57:49.770 - DEBUG - read_channel:
+20181120 16:57:49.971 - DEBUG - read_channel: sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:50.172 - DEBUG - read_channel:
+20181120 16:57:50.173 - DEBUG - write_channel: sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev eth1.733
+20181120 16:57:50.173 - DEBUG - read_channel:
+20181120 16:57:50.374 - DEBUG - read_channel: sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev  eth1.733
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:50.575 - DEBUG - read_channel:
+20181120 16:57:50.575 - DEBUG - write_channel: sudo vconfig add eth1 734
+20181120 16:57:50.576 - DEBUG - read_channel:
+20181120 16:57:50.776 - DEBUG - read_channel: sudo vconfig add eth1 734
+ERROR: trying to add VLAN #734 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:50.977 - DEBUG - read_channel:
+20181120 16:57:50.978 - DEBUG - write_channel: sudo ifconfig eth1.734 up
+20181120 16:57:50.979 - DEBUG - read_channel:
+20181120 16:57:51.180 - DEBUG - read_channel: sudo ifconfig eth1.734 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:51.381 - DEBUG - read_channel:
+20181120 16:57:51.382 - DEBUG - write_channel: sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255.0
+20181120 16:57:51.382 - DEBUG - read_channel:
+20181120 16:57:51.583 - DEBUG - read_channel: sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:51.784 - DEBUG - read_channel:
+20181120 16:57:51.785 - DEBUG - write_channel: sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev eth1.734
+20181120 16:57:51.785 - DEBUG - read_channel:
+20181120 16:57:51.986 - DEBUG - read_channel: sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev  eth1.734
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:52.187 - DEBUG - read_channel:
+20181120 16:57:52.188 - DEBUG - write_channel: sudo vconfig add eth1 735
+20181120 16:57:52.189 - DEBUG - read_channel:
+20181120 16:57:52.391 - DEBUG - read_channel: sudo vconfig add eth1 735
+ERROR: trying to add VLAN #735 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:52.592 - DEBUG - read_channel:
+20181120 16:57:52.593 - DEBUG - write_channel: sudo ifconfig eth1.735 up
+20181120 16:57:52.593 - DEBUG - read_channel:
+20181120 16:57:52.794 - DEBUG - read_channel: sudo ifconfig eth1.735 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:52.995 - DEBUG - read_channel:
+20181120 16:57:52.996 - DEBUG - write_channel: sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255.0
+20181120 16:57:52.996 - DEBUG - read_channel:
+20181120 16:57:53.198 - DEBUG - read_channel: sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:53.399 - DEBUG - read_channel:
+20181120 16:57:53.400 - DEBUG - write_channel: sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev eth1.735
+20181120 16:57:53.400 - DEBUG - read_channel:
+20181120 16:57:53.601 - DEBUG - read_channel: sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev  eth1.735
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:53.802 - DEBUG - read_channel:
+20181120 16:57:53.803 - DEBUG - write_channel: sudo vconfig add eth1 736
+20181120 16:57:53.803 - DEBUG - read_channel:
+20181120 16:57:54.004 - DEBUG - read_channel: sudo vconfig add eth1 736
+ERROR: trying to add VLAN #736 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:54.205 - DEBUG - read_channel:
+20181120 16:57:54.206 - DEBUG - write_channel: sudo ifconfig eth1.736 up
+20181120 16:57:54.206 - DEBUG - read_channel:
+20181120 16:57:54.407 - DEBUG - read_channel: sudo ifconfig eth1.736 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:54.608 - DEBUG - read_channel:
+20181120 16:57:54.609 - DEBUG - write_channel: sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255.0
+20181120 16:57:54.609 - DEBUG - read_channel:
+20181120 16:57:54.811 - DEBUG - read_channel: sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:55.011 - DEBUG - read_channel:
+20181120 16:57:55.012 - DEBUG - write_channel: sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev eth1.736
+20181120 16:57:55.013 - DEBUG - read_channel:
+20181120 16:57:55.213 - DEBUG - read_channel: sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev  eth1.736
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:55.414 - DEBUG - read_channel:
+20181120 16:57:55.415 - DEBUG - write_channel: sudo vconfig add eth1 737
+20181120 16:57:55.416 - DEBUG - read_channel:
+20181120 16:57:55.616 - DEBUG - read_channel: sudo vconfig add eth1 737
+ERROR: trying to add VLAN #737 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:55.817 - DEBUG - read_channel:
+20181120 16:57:55.818 - DEBUG - write_channel: sudo ifconfig eth1.737 up
+20181120 16:57:55.818 - DEBUG - read_channel:
+20181120 16:57:56.019 - DEBUG - read_channel: sudo ifconfig eth1.737 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:56.220 - DEBUG - read_channel:
+20181120 16:57:56.221 - DEBUG - write_channel: sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255.0
+20181120 16:57:56.221 - DEBUG - read_channel:
+20181120 16:57:56.423 - DEBUG - read_channel: sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:56.624 - DEBUG - read_channel:
+20181120 16:57:56.625 - DEBUG - write_channel: sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev eth1.737
+20181120 16:57:56.625 - DEBUG - read_channel:
+20181120 16:57:56.826 - DEBUG - read_channel: sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev  eth1.737
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:57.027 - DEBUG - read_channel:
+20181120 16:57:57.028 - DEBUG - write_channel: sudo vconfig add eth1 738
+20181120 16:57:57.028 - DEBUG - read_channel:
+20181120 16:57:57.229 - DEBUG - read_channel: sudo vconfig add eth1 738
+ERROR: trying to add VLAN #738 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:57.430 - DEBUG - read_channel:
+20181120 16:57:57.431 - DEBUG - write_channel: sudo ifconfig eth1.738 up
+20181120 16:57:57.431 - DEBUG - read_channel:
+20181120 16:57:57.632 - DEBUG - read_channel: sudo ifconfig eth1.738 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:57.833 - DEBUG - read_channel:
+20181120 16:57:57.834 - DEBUG - write_channel: sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255.0
+20181120 16:57:57.834 - DEBUG - read_channel:
+20181120 16:57:58.035 - DEBUG - read_channel: sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:58.236 - DEBUG - read_channel:
+20181120 16:57:58.237 - DEBUG - write_channel: sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev eth1.738
+20181120 16:57:58.237 - DEBUG - read_channel:
+20181120 16:57:58.439 - DEBUG - read_channel: sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev  eth1.738
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:58.640 - DEBUG - read_channel:
+20181120 16:57:58.641 - DEBUG - write_channel: sudo vconfig add eth1 739
+20181120 16:57:58.641 - DEBUG - read_channel:
+20181120 16:57:58.843 - DEBUG - read_channel: sudo vconfig add eth1 739
+ERROR: trying to add VLAN #739 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:59.043 - DEBUG - read_channel:
+20181120 16:57:59.044 - DEBUG - write_channel: sudo ifconfig eth1.739 up
+20181120 16:57:59.045 - DEBUG - read_channel:
+20181120 16:57:59.245 - DEBUG - read_channel: sudo ifconfig eth1.739 up
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:59.446 - DEBUG - read_channel:
+20181120 16:57:59.447 - DEBUG - write_channel: sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255.0
+20181120 16:57:59.447 - DEBUG - read_channel:
+20181120 16:57:59.648 - DEBUG - read_channel: sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255 .0
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:57:59.849 - DEBUG - read_channel:
+20181120 16:57:59.850 - DEBUG - write_channel: sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev eth1.739
+20181120 16:57:59.850 - DEBUG - read_channel:
+20181120 16:58:00.051 - DEBUG - read_channel: sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev  eth1.739
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:58:00.051 - INFO - <netmiko.linux.linux_ssh.LinuxSSH object at 0x7effcd9cb310>
+[sudo] password for admin: 
+CPE1-N2-BLR:~# 
+exit
+linux: admin@NV-CPE1-N2-BLR:~$
+sudo bash
+sudo bash
+root@NV-CPE1-N2-BLR:~# 
+versa123
+versa123
+versa123: command not found
+root@NV-CPE1-N2-BLR:~# 
+exit
+exit
+exit
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1 up
+sudo ifconfig eth1 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 730
+sudo vconfig add eth1 730
+ERROR: trying to add VLAN #730 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.730 up
+sudo ifconfig eth1.730 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255.0
+sudo ifconfig eth1.730 192.169.231.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev eth1.730
+sudo ip route add 192.169.241.0/24 via 192.169.231.1 dev 
+ eth1.730
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 731
+sudo vconfig add eth1 731
+ERROR: trying to add VLAN #731 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.731 up
+sudo ifconfig eth1.731 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255.0
+sudo ifconfig eth1.731 192.169.232.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev eth1.731
+sudo ip route add 192.169.242.0/24 via 192.169.232.1 dev 
+ eth1.731
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 732
+sudo vconfig add eth1 732
+ERROR: trying to add VLAN #732 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.732 up
+sudo ifconfig eth1.732 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255.0
+sudo ifconfig eth1.732 192.169.233.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev eth1.732
+sudo ip route add 192.169.243.0/24 via 192.169.233.1 dev 
+ eth1.732
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 733
+sudo vconfig add eth1 733
+ERROR: trying to add VLAN #733 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.733 up
+sudo ifconfig eth1.733 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255.0
+sudo ifconfig eth1.733 192.169.234.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev eth1.733
+sudo ip route add 192.169.244.0/24 via 192.169.234.1 dev 
+ eth1.733
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 734
+sudo vconfig add eth1 734
+ERROR: trying to add VLAN #734 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.734 up
+sudo ifconfig eth1.734 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255.0
+sudo ifconfig eth1.734 192.169.235.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev eth1.734
+sudo ip route add 192.169.245.0/24 via 192.169.235.1 dev 
+ eth1.734
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 735
+sudo vconfig add eth1 735
+ERROR: trying to add VLAN #735 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.735 up
+sudo ifconfig eth1.735 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255.0
+sudo ifconfig eth1.735 192.169.236.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev eth1.735
+sudo ip route add 192.169.246.0/24 via 192.169.236.1 dev 
+ eth1.735
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 736
+sudo vconfig add eth1 736
+ERROR: trying to add VLAN #736 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.736 up
+sudo ifconfig eth1.736 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255.0
+sudo ifconfig eth1.736 192.169.237.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev eth1.736
+sudo ip route add 192.169.247.0/24 via 192.169.237.1 dev 
+ eth1.736
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 737
+sudo vconfig add eth1 737
+ERROR: trying to add VLAN #737 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.737 up
+sudo ifconfig eth1.737 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255.0
+sudo ifconfig eth1.737 192.169.238.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev eth1.737
+sudo ip route add 192.169.248.0/24 via 192.169.238.1 dev 
+ eth1.737
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 738
+sudo vconfig add eth1 738
+ERROR: trying to add VLAN #738 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.738 up
+sudo ifconfig eth1.738 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255.0
+sudo ifconfig eth1.738 192.169.239.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev eth1.738
+sudo ip route add 192.169.249.0/24 via 192.169.239.1 dev 
+ eth1.738
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo vconfig add eth1 739
+sudo vconfig add eth1 739
+ERROR: trying to add VLAN #739 to IF -:eth1:-  error: File exists
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.739 up
+sudo ifconfig eth1.739 up
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255.0
+sudo ifconfig eth1.739 192.169.240.2 netmask 255.255.255 
+.0
+admin@NV-CPE1-N2-BLR:~$ 
+sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev eth1.739
+sudo ip route add 192.169.250.0/24 via 192.169.240.1 dev 
+ eth1.739
+RTNETLINK answers: File exists
+admin@NV-CPE1-N2-BLR:~$
+20181120 16:58:00.053 - INFO - +-- END KW: VM1.VM Pre Op (23338)
+20181120 16:58:00.053 - INFO - +-- START KW: VM2.VM Pre Op [ ]
+20181120 16:58:00.278 - DEBUG - Adding ssh-rsa host key for 10.83.44.41: 9ecf6526e9c772efd27f86ec6a01fa29
+20181120 16:58:00.344 - DEBUG - [chan 0] Max packet in: 32768 bytes
+20181120 16:58:01.453 - DEBUG - read_channel: Last login: Tue Nov 20 11:06:39 2018 from 10.91.124.96
+admin@NV-VM-CPE-02:~$
+20181120 16:58:01.554 - DEBUG - read_channel:
+20181120 16:58:03.557 - DEBUG - read_channel:
+20181120 16:58:03.557 - DEBUG - read_channel:
+20181120 16:58:03.558 - DEBUG - write_channel:
+20181120 16:58:03.658 - DEBUG - read_channel: 
+admin@NV-VM-CPE-02:~$
+20181120 16:58:03.759 - DEBUG - read_channel:
+20181120 16:58:04.060 - DEBUG - read_channel:
+20181120 16:58:04.261 - DEBUG - read_channel:
+20181120 16:58:04.262 - DEBUG - write_channel: sudo bash
+20181120 16:58:04.262 - DEBUG - read_channel:
+20181120 16:58:04.463 - DEBUG - read_channel: sudo bash
+[sudo] password for admin:
+20181120 16:58:04.664 - DEBUG - read_channel:
+20181120 16:58:04.665 - DEBUG - write_channel: versa123
+20181120 16:58:04.665 - DEBUG - read_channel:
+20181120 16:58:04.866 - DEBUG - read_channel: 
+root@NV-VM-CPE-02:~#
+20181120 16:58:05.067 - DEBUG - read_channel:
+20181120 16:58:05.068 - DEBUG - write_channel: exit
+20181120 16:58:05.068 - DEBUG - read_channel:
+20181120 16:58:05.269 - DEBUG - read_channel: exit
+exit
+admin@NV-VM-CPE-02:~$
+20181120 16:58:05.269 - DEBUG - read_channel:
+20181120 16:58:05.270 - DEBUG - write_channel:
+20181120 16:58:05.370 - DEBUG - read_channel: 
+admin@NV-VM-CPE-02:~$
+20181120 16:58:05.471 - DEBUG - read_channel:
+20181120 16:58:05.672 - DEBUG - read_channel:
+20181120 16:58:05.673 - DEBUG - write_channel: sudo bash
+20181120 16:58:05.673 - DEBUG - read_channel:
+20181120 16:58:05.874 - DEBUG - read_channel: sudo bash
+root@NV-VM-CPE-02:~#
+20181120 16:58:06.075 - DEBUG - read_channel:
+20181120 16:58:06.076 - DEBUG - write_channel: versa123
+20181120 16:58:06.076 - DEBUG - read_channel:
+20181120 16:58:06.277 - DEBUG - read_channel: versa123
+versa123: command not found
+root@NV-VM-CPE-02:~#
+20181120 16:58:06.478 - DEBUG - read_channel:
+20181120 16:58:06.479 - DEBUG - write_channel: exit
+20181120 16:58:06.479 - DEBUG - read_channel:
+20181120 16:58:06.680 - DEBUG - read_channel: exit
+exit
+admin@NV-VM-CPE-02:~$
+20181120 16:58:06.881 - DEBUG - read_channel:
+20181120 16:58:06.882 - DEBUG - write_channel: sudo ifconfig eth1 up
+20181120 16:58:06.883 - DEBUG - read_channel:
+20181120 16:58:07.083 - DEBUG - read_channel: sudo ifconfig eth1 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:07.285 - DEBUG - read_channel:
+20181120 16:58:07.285 - DEBUG - write_channel: sudo vconfig add eth1 740
+20181120 16:58:07.285 - DEBUG - read_channel:
+20181120 16:58:07.486 - DEBUG - read_channel: sudo vconfig add eth1 740
+ERROR: trying to add VLAN #740 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:07.687 - DEBUG - read_channel:
+20181120 16:58:07.688 - DEBUG - write_channel: sudo ifconfig eth1.740 up
+20181120 16:58:07.688 - DEBUG - read_channel:
+20181120 16:58:07.889 - DEBUG - read_channel: sudo ifconfig eth1.740 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:08.090 - DEBUG - read_channel:
+20181120 16:58:08.091 - DEBUG - write_channel: sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0
+20181120 16:58:08.091 - DEBUG - read_channel:
+20181120 16:58:08.292 - DEBUG - read_channel: sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:08.493 - DEBUG - read_channel:
+20181120 16:58:08.494 - DEBUG - write_channel: sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev eth1.740
+20181120 16:58:08.494 - DEBUG - read_channel:
+20181120 16:58:08.695 - DEBUG - read_channel: sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev e th1.740
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:08.896 - DEBUG - read_channel:
+20181120 16:58:08.897 - DEBUG - write_channel: sudo vconfig add eth1 741
+20181120 16:58:08.897 - DEBUG - read_channel:
+20181120 16:58:09.098 - DEBUG - read_channel: sudo vconfig add eth1 741
+ERROR: trying to add VLAN #741 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:09.299 - DEBUG - read_channel:
+20181120 16:58:09.300 - DEBUG - write_channel: sudo ifconfig eth1.741 up
+20181120 16:58:09.300 - DEBUG - read_channel:
+20181120 16:58:09.501 - DEBUG - read_channel: sudo ifconfig eth1.741 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:09.702 - DEBUG - read_channel:
+20181120 16:58:09.702 - DEBUG - write_channel: sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0
+20181120 16:58:09.703 - DEBUG - read_channel:
+20181120 16:58:09.904 - DEBUG - read_channel: sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:10.105 - DEBUG - read_channel:
+20181120 16:58:10.106 - DEBUG - write_channel: sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev eth1.741
+20181120 16:58:10.106 - DEBUG - read_channel:
+20181120 16:58:10.307 - DEBUG - read_channel: sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev e th1.741
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:10.508 - DEBUG - read_channel:
+20181120 16:58:10.509 - DEBUG - write_channel: sudo vconfig add eth1 742
+20181120 16:58:10.509 - DEBUG - read_channel:
+20181120 16:58:10.710 - DEBUG - read_channel: sudo vconfig add eth1 742
+ERROR: trying to add VLAN #742 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:10.911 - DEBUG - read_channel:
+20181120 16:58:10.912 - DEBUG - write_channel: sudo ifconfig eth1.742 up
+20181120 16:58:10.912 - DEBUG - read_channel:
+20181120 16:58:11.114 - DEBUG - read_channel: sudo ifconfig eth1.742 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:11.315 - DEBUG - read_channel:
+20181120 16:58:11.316 - DEBUG - write_channel: sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0
+20181120 16:58:11.316 - DEBUG - read_channel:
+20181120 16:58:11.518 - DEBUG - read_channel: sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:11.719 - DEBUG - read_channel:
+20181120 16:58:11.720 - DEBUG - write_channel: sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev eth1.742
+20181120 16:58:11.720 - DEBUG - read_channel:
+20181120 16:58:11.921 - DEBUG - read_channel: sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev e th1.742
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:12.122 - DEBUG - read_channel:
+20181120 16:58:12.123 - DEBUG - write_channel: sudo vconfig add eth1 743
+20181120 16:58:12.123 - DEBUG - read_channel:
+20181120 16:58:12.324 - DEBUG - read_channel: sudo vconfig add eth1 743
+ERROR: trying to add VLAN #743 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:12.525 - DEBUG - read_channel:
+20181120 16:58:12.526 - DEBUG - write_channel: sudo ifconfig eth1.743 up
+20181120 16:58:12.526 - DEBUG - read_channel:
+20181120 16:58:12.727 - DEBUG - read_channel: sudo ifconfig eth1.743 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:12.928 - DEBUG - read_channel:
+20181120 16:58:12.929 - DEBUG - write_channel: sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0
+20181120 16:58:12.929 - DEBUG - read_channel:
+20181120 16:58:13.130 - DEBUG - read_channel: sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:13.331 - DEBUG - read_channel:
+20181120 16:58:13.332 - DEBUG - write_channel: sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev eth1.743
+20181120 16:58:13.332 - DEBUG - read_channel:
+20181120 16:58:13.533 - DEBUG - read_channel: sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev e th1.743
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:13.734 - DEBUG - read_channel:
+20181120 16:58:13.735 - DEBUG - write_channel: sudo vconfig add eth1 744
+20181120 16:58:13.735 - DEBUG - read_channel:
+20181120 16:58:13.936 - DEBUG - read_channel: sudo vconfig add eth1 744
+ERROR: trying to add VLAN #744 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:14.138 - DEBUG - read_channel:
+20181120 16:58:14.139 - DEBUG - write_channel: sudo ifconfig eth1.744 up
+20181120 16:58:14.139 - DEBUG - read_channel:
+20181120 16:58:14.340 - DEBUG - read_channel: sudo ifconfig eth1.744 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:14.541 - DEBUG - read_channel:
+20181120 16:58:14.541 - DEBUG - write_channel: sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0
+20181120 16:58:14.542 - DEBUG - read_channel:
+20181120 16:58:14.742 - DEBUG - read_channel: sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:14.943 - DEBUG - read_channel:
+20181120 16:58:14.944 - DEBUG - write_channel: sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev eth1.744
+20181120 16:58:14.945 - DEBUG - read_channel:
+20181120 16:58:15.145 - DEBUG - read_channel: sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev e th1.744
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:15.347 - DEBUG - read_channel:
+20181120 16:58:15.347 - DEBUG - write_channel: sudo vconfig add eth1 745
+20181120 16:58:15.348 - DEBUG - read_channel:
+20181120 16:58:15.548 - DEBUG - read_channel: sudo vconfig add eth1 745
+ERROR: trying to add VLAN #745 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:15.749 - DEBUG - read_channel:
+20181120 16:58:15.750 - DEBUG - write_channel: sudo ifconfig eth1.745 up
+20181120 16:58:15.750 - DEBUG - read_channel:
+20181120 16:58:15.951 - DEBUG - read_channel: sudo ifconfig eth1.745 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:16.152 - DEBUG - read_channel:
+20181120 16:58:16.153 - DEBUG - write_channel: sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0
+20181120 16:58:16.153 - DEBUG - read_channel:
+20181120 16:58:16.354 - DEBUG - read_channel: sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:16.555 - DEBUG - read_channel:
+20181120 16:58:16.556 - DEBUG - write_channel: sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev eth1.745
+20181120 16:58:16.556 - DEBUG - read_channel:
+20181120 16:58:16.758 - DEBUG - read_channel: sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev e th1.745
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:16.959 - DEBUG - read_channel:
+20181120 16:58:16.959 - DEBUG - write_channel: sudo vconfig add eth1 746
+20181120 16:58:16.960 - DEBUG - read_channel:
+20181120 16:58:17.161 - DEBUG - read_channel: sudo vconfig add eth1 746
+ERROR: trying to add VLAN #746 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:17.362 - DEBUG - read_channel:
+20181120 16:58:17.363 - DEBUG - write_channel: sudo ifconfig eth1.746 up
+20181120 16:58:17.363 - DEBUG - read_channel:
+20181120 16:58:17.564 - DEBUG - read_channel: sudo ifconfig eth1.746 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:17.765 - DEBUG - read_channel:
+20181120 16:58:17.766 - DEBUG - write_channel: sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0
+20181120 16:58:17.766 - DEBUG - read_channel:
+20181120 16:58:17.968 - DEBUG - read_channel: sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:18.169 - DEBUG - read_channel:
+20181120 16:58:18.169 - DEBUG - write_channel: sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev eth1.746
+20181120 16:58:18.170 - DEBUG - read_channel:
+20181120 16:58:18.371 - DEBUG - read_channel: sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev e th1.746
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:18.572 - DEBUG - read_channel:
+20181120 16:58:18.572 - DEBUG - write_channel: sudo vconfig add eth1 747
+20181120 16:58:18.573 - DEBUG - read_channel:
+20181120 16:58:18.774 - DEBUG - read_channel: sudo vconfig add eth1 747
+ERROR: trying to add VLAN #747 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:18.975 - DEBUG - read_channel:
+20181120 16:58:18.976 - DEBUG - write_channel: sudo ifconfig eth1.747 up
+20181120 16:58:18.977 - DEBUG - read_channel:
+20181120 16:58:19.178 - DEBUG - read_channel: sudo ifconfig eth1.747 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:19.379 - DEBUG - read_channel:
+20181120 16:58:19.380 - DEBUG - write_channel: sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0
+20181120 16:58:19.380 - DEBUG - read_channel:
+20181120 16:58:19.581 - DEBUG - read_channel: sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:19.782 - DEBUG - read_channel:
+20181120 16:58:19.783 - DEBUG - write_channel: sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev eth1.747
+20181120 16:58:19.783 - DEBUG - read_channel:
+20181120 16:58:19.984 - DEBUG - read_channel: sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev e th1.747
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:20.185 - DEBUG - read_channel:
+20181120 16:58:20.186 - DEBUG - write_channel: sudo vconfig add eth1 748
+20181120 16:58:20.186 - DEBUG - read_channel:
+20181120 16:58:20.388 - DEBUG - read_channel: sudo vconfig add eth1 748
+ERROR: trying to add VLAN #748 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:20.589 - DEBUG - read_channel:
+20181120 16:58:20.589 - DEBUG - write_channel: sudo ifconfig eth1.748 up
+20181120 16:58:20.590 - DEBUG - read_channel:
+20181120 16:58:20.791 - DEBUG - read_channel: sudo ifconfig eth1.748 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:20.992 - DEBUG - read_channel:
+20181120 16:58:20.993 - DEBUG - write_channel: sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0
+20181120 16:58:20.993 - DEBUG - read_channel:
+20181120 16:58:21.194 - DEBUG - read_channel: sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:21.395 - DEBUG - read_channel:
+20181120 16:58:21.396 - DEBUG - write_channel: sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev eth1.748
+20181120 16:58:21.396 - DEBUG - read_channel:
+20181120 16:58:21.597 - DEBUG - read_channel: sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev e th1.748
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:21.798 - DEBUG - read_channel:
+20181120 16:58:21.799 - DEBUG - write_channel: sudo vconfig add eth1 749
+20181120 16:58:21.799 - DEBUG - read_channel:
+20181120 16:58:22.000 - DEBUG - read_channel: sudo vconfig add eth1 749
+ERROR: trying to add VLAN #749 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:22.201 - DEBUG - read_channel:
+20181120 16:58:22.202 - DEBUG - write_channel: sudo ifconfig eth1.749 up
+20181120 16:58:22.202 - DEBUG - read_channel:
+20181120 16:58:22.403 - DEBUG - read_channel: sudo ifconfig eth1.749 up
+admin@NV-VM-CPE-02:~$
+20181120 16:58:22.604 - DEBUG - read_channel:
+20181120 16:58:22.605 - DEBUG - write_channel: sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0
+20181120 16:58:22.605 - DEBUG - read_channel:
+20181120 16:58:22.806 - DEBUG - read_channel: sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0 [Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$
+20181120 16:58:23.007 - DEBUG - read_channel:
+20181120 16:58:23.007 - DEBUG - write_channel: sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev eth1.749
+20181120 16:58:23.008 - DEBUG - read_channel:
+20181120 16:58:23.208 - DEBUG - read_channel: sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev e th1.749
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:23.209 - INFO - <netmiko.linux.linux_ssh.LinuxSSH object at 0x7effcd154490>
+[sudo] password for admin: 
+VM-CPE-02:~# 
+exit
+linux: admin@NV-VM-CPE-02:~$
+sudo bash
+sudo bash
+root@NV-VM-CPE-02:~# 
+versa123
+versa123
+versa123: command not found
+root@NV-VM-CPE-02:~# 
+exit
+exit
+exit
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1 up
+sudo ifconfig eth1 up
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 740
+sudo vconfig add eth1 740
+ERROR: trying to add VLAN #740 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.740 up
+sudo ifconfig eth1.740 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0
+sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.740 192.169.241.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev eth1.740
+sudo ip route add 192.169.231.0/24 via 192.169.241.1 dev e 
+th1.740
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 741
+sudo vconfig add eth1 741
+ERROR: trying to add VLAN #741 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.741 up
+sudo ifconfig eth1.741 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0
+sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.741 192.169.242.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev eth1.741
+sudo ip route add 192.169.232.0/24 via 192.169.242.1 dev e 
+th1.741
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 742
+sudo vconfig add eth1 742
+ERROR: trying to add VLAN #742 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.742 up
+sudo ifconfig eth1.742 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0
+sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.742 192.169.243.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev eth1.742
+sudo ip route add 192.169.233.0/24 via 192.169.243.1 dev e 
+th1.742
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 743
+sudo vconfig add eth1 743
+ERROR: trying to add VLAN #743 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.743 up
+sudo ifconfig eth1.743 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0
+sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.743 192.169.244.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev eth1.743
+sudo ip route add 192.169.234.0/24 via 192.169.244.1 dev e 
+th1.743
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 744
+sudo vconfig add eth1 744
+ERROR: trying to add VLAN #744 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.744 up
+sudo ifconfig eth1.744 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0
+sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.744 192.169.245.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev eth1.744
+sudo ip route add 192.169.235.0/24 via 192.169.245.1 dev e 
+th1.744
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 745
+sudo vconfig add eth1 745
+ERROR: trying to add VLAN #745 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.745 up
+sudo ifconfig eth1.745 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0
+sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.745 192.169.246.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev eth1.745
+sudo ip route add 192.169.236.0/24 via 192.169.246.1 dev e 
+th1.745
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 746
+sudo vconfig add eth1 746
+ERROR: trying to add VLAN #746 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.746 up
+sudo ifconfig eth1.746 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0
+sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.746 192.169.247.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev eth1.746
+sudo ip route add 192.169.237.0/24 via 192.169.247.1 dev e 
+th1.746
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 747
+sudo vconfig add eth1 747
+ERROR: trying to add VLAN #747 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.747 up
+sudo ifconfig eth1.747 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0
+sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.747 192.169.248.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev eth1.747
+sudo ip route add 192.169.238.0/24 via 192.169.248.1 dev e 
+th1.747
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 748
+sudo vconfig add eth1 748
+ERROR: trying to add VLAN #748 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.748 up
+sudo ifconfig eth1.748 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0
+sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.748 192.169.249.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev eth1.748
+sudo ip route add 192.169.239.0/24 via 192.169.249.1 dev e 
+th1.748
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo vconfig add eth1 749
+sudo vconfig add eth1 749
+ERROR: trying to add VLAN #749 to IF -:eth1:-  error: File exists
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.749 up
+sudo ifconfig eth1.749 up
+admin@NV-VM-CPE-02:~$ 
+sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0
+sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.0 
+[Aadmin@NV-VM-CPE-02:~$ sudo ifconfig eth1.749 192.169.250.2 netmask 255.255.255.[K0
+admin@NV-VM-CPE-02:~$ 
+sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev eth1.749
+sudo ip route add 192.169.240.0/24 via 192.169.250.1 dev e 
+th1.749
+RTNETLINK answers: File exists
+admin@NV-VM-CPE-02:~$
+20181120 16:58:23.210 - INFO - +-- END KW: VM2.VM Pre Op (23157)
+20181120 16:58:23.211 - INFO - +-- START KW: CPE1.Get Data Dict [ ]
+20181120 16:58:23.401 - INFO - ${cpe1} = {'WC2_NAME': 'NV-WC02-N4-MUM', 'MPLS_WAN_INTF_IP': '172.16.3.94', 'GUIpassword': nan, 'STAGING_id_type': 'email', 'STAGING_KEY': '1234', 'data_dict': {'peer_lan_second_host': {736: '192.169.247.2', 73...
+20181120 16:58:23.401 - INFO - +-- END KW: CPE1.Get Data Dict (190)
+20181120 16:58:23.402 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${cpe1} ]
+20181120 16:58:23.500 - INFO - ${cpe1} = {'WC2_NAME': 'NV-WC02-N4-MUM', 'MPLS_WAN_INTF_IP': '172.16.3.94', 'GUIpassword': nan, 'STAGING_id_type': 'email', 'STAGING_KEY': '1234', 'data_dict': {'peer_lan_second_host': {736: '192.169.247.2', 73...
+20181120 16:58:23.500 - INFO - +-- END KW: BuiltIn.Set Suite Variable (98)
+20181120 16:58:23.501 - INFO - +-- START KW: CPE2.Get Data Dict [ ]
+20181120 16:58:23.677 - INFO - ${cpe2} = {'WC2_NAME': 'NV-WC02-N4-MUM', 'MPLS_WAN_INTF_IP': '172.16.4.94', 'GUIpassword': nan, 'STAGING_id_type': 'email', 'STAGING_KEY': '1234', 'data_dict': {'peer_lan_second_host': {740: '192.169.231.2', 74...
+20181120 16:58:23.677 - INFO - +-- END KW: CPE2.Get Data Dict (176)
+20181120 16:58:23.678 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${cpe2} ]
+20181120 16:58:23.742 - INFO - ${cpe2} = {'WC2_NAME': 'NV-WC02-N4-MUM', 'MPLS_WAN_INTF_IP': '172.16.4.94', 'GUIpassword': nan, 'STAGING_id_type': 'email', 'STAGING_KEY': '1234', 'data_dict': {'peer_lan_second_host': {740: '192.169.231.2', 74...
+20181120 16:58:23.742 - INFO - +-- END KW: BuiltIn.Set Suite Variable (64)
+20181120 16:58:23.743 - INFO - +-- START KW: VM1.Get Data Dict [ ]
+20181120 16:58:23.845 - INFO - ${vm1} = {'WC2_NAME': nan, 'MPLS_WAN_INTF_IP': nan, 'GUIpassword': nan, 'STAGING_id_type': nan, 'STAGING_KEY': nan, 'data_dict': {'peer_lan_second_host': {736: '192.169.247.2', 737: '192.169.248.2', 738: '192....
+20181120 16:58:23.845 - INFO - +-- END KW: VM1.Get Data Dict (103)
+20181120 16:58:23.846 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${vm1} ]
+20181120 16:58:23.896 - INFO - ${vm1} = {'WC2_NAME': nan, 'MPLS_WAN_INTF_IP': nan, 'GUIpassword': nan, 'STAGING_id_type': nan, 'STAGING_KEY': nan, 'data_dict': {'peer_lan_second_host': {736: '192.169.247.2', 737: '192.169.248.2', 738: '192....
+20181120 16:58:23.896 - INFO - +-- END KW: BuiltIn.Set Suite Variable (50)
+20181120 16:58:23.897 - INFO - +-- START KW: VM2.Get Data Dict [ ]
+20181120 16:58:23.959 - INFO - ${vm2} = {'WC2_NAME': nan, 'MPLS_WAN_INTF_IP': nan, 'GUIpassword': nan, 'STAGING_id_type': nan, 'STAGING_KEY': nan, 'data_dict': {'peer_lan_second_host': {740: '192.169.231.2', 741: '192.169.232.2', 742: '192....
+20181120 16:58:23.959 - INFO - +-- END KW: VM2.Get Data Dict (62)
+20181120 16:58:23.960 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${vm2} ]
+20181120 16:58:23.989 - INFO - ${vm2} = {'WC2_NAME': nan, 'MPLS_WAN_INTF_IP': nan, 'GUIpassword': nan, 'STAGING_id_type': nan, 'STAGING_KEY': nan, 'data_dict': {'peer_lan_second_host': {740: '192.169.231.2', 741: '192.169.232.2', 742: '192....
+20181120 16:58:23.989 - INFO - +-- END KW: BuiltIn.Set Suite Variable (29)
+20181120 16:58:23.990 - INFO - +- END SETUP: STARTUP (105683)
+------------------------------------------------------------------------------
+20181120 16:58:23.991 - INFO - +- START TEST: Testcase: SDWAN to SDWAN connectivity check both links [ ]
+------------------------------------------------------------------------------
+20181120 16:58:23.991 - INFO - +-- START KW: CPE1.Get Interface Status [ intf_name=${cpe1['ptvi_intf_wc1']} ]
+20181120 16:58:24.193 - DEBUG - read_channel:
+20181120 16:58:24.194 - DEBUG - write_channel: show interfaces brief | tab | match ptvi32
+20181120 16:58:24.194 - DEBUG - read_channel:
+20181120 16:58:24.395 - DEBUG - read_channel: show interfaces
+20181120 16:58:24.395 - DEBUG - read_channel:
+20181120 16:58:24.596 - DEBUG - read_channel:  brief | tab | match
+20181120 16:58:24.596 - DEBUG - read_channel:
+20181120 16:58:24.797 - DEBUG - read_channel:  ptvi32
+20181120 16:58:24.798 - DEBUG - read_channel:
+20181120 16:58:24.998 - DEBUG - read_channel:
+20181120 16:58:25.199 - DEBUG - read_channel:
+20181120 16:58:25.400 - DEBUG - read_channel: ptvi32       n/a                up    up     2       IPC00012-Control-VR   10.16.64.5/32     
+[ok][2018-11-20 11:24:45]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:25.401 - INFO - ${result} = show interfaces brief | tab | match ptvi32
+ptvi32       n/a                up    up     2       IPC00012-Control-VR   10.16.64.5/32     
+[ok][2018-11-20 11:24:45]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:25.402 - INFO - +-- END KW: CPE1.Get Interface Status (1410)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:25.402 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=up ]
+20181120 16:58:25.404 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:25.405 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:25.406 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:25.407 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:25.408 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:25.409 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:25.411 - INFO - +---- END KW: BuiltIn.Should Contain (2)
+20181120 16:58:25.412 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (4)
+20181120 16:58:25.412 - INFO - +-- END KW: CHECK RESULT (10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:25.413 - INFO - +-- START KW: CPE1.Get Interface Status [ intf_name=${cpe1['ptvi_intf_wc2']} ]
+20181120 16:58:25.614 - DEBUG - read_channel:
+20181120 16:58:25.615 - DEBUG - write_channel: show interfaces brief | tab | match ptvi33
+20181120 16:58:25.615 - DEBUG - read_channel:
+20181120 16:58:25.816 - DEBUG - read_channel: show interfaces
+20181120 16:58:25.817 - DEBUG - read_channel:
+20181120 16:58:26.017 - DEBUG - read_channel:  brief
+20181120 16:58:26.018 - DEBUG - read_channel:
+20181120 16:58:26.219 - DEBUG - read_channel:  | tab | match ptvi33
+20181120 16:58:26.219 - DEBUG - read_channel:
+20181120 16:58:26.420 - DEBUG - read_channel:
+20181120 16:58:26.621 - DEBUG - read_channel: ptvi33       n/a                up    up     2       IPC00012-Control-VR   10.16.64.6/32     
+[ok][2018-11-20 11:24:46]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:26.622 - INFO - ${result} = show interfaces brief | tab | match ptvi33
+ptvi33       n/a                up    up     2       IPC00012-Control-VR   10.16.64.6/32     
+[ok][2018-11-20 11:24:46]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:26.622 - INFO - +-- END KW: CPE1.Get Interface Status (1209)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:26.623 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=up ]
+20181120 16:58:26.625 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:26.626 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:26.627 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:26.628 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:26.628 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:26.629 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:26.631 - INFO - +---- END KW: BuiltIn.Should Contain (2)
+20181120 16:58:26.632 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (3)
+20181120 16:58:26.632 - INFO - +-- END KW: CHECK RESULT (9)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:26.633 - INFO - +-- START KW: CPE2.Get Interface Status [ intf_name=${cpe2['ptvi_intf_wc1']} ]
+20181120 16:58:26.835 - DEBUG - read_channel:
+20181120 16:58:26.836 - DEBUG - write_channel: show interfaces brief | tab | match ptvi32
+20181120 16:58:26.836 - DEBUG - read_channel:
+20181120 16:58:27.037 - DEBUG - read_channel: show interfaces
+20181120 16:58:27.037 - DEBUG - read_channel:
+20181120 16:58:27.238 - DEBUG - read_channel:  brief
+20181120 16:58:27.239 - DEBUG - read_channel:
+20181120 16:58:27.439 - DEBUG - read_channel:  | tab | match ptvi32
+20181120 16:58:27.440 - DEBUG - read_channel:
+20181120 16:58:27.641 - DEBUG - read_channel:
+20181120 16:58:27.842 - DEBUG - read_channel: ptvi32       n/a                up    up     2       IPC00012-Control-VR    10.16.64.5/32     
+[ok][2018-11-20 11:24:48]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:58:27.842 - INFO - ${result} = show interfaces brief | tab | match ptvi32
+ptvi32       n/a                up    up     2       IPC00012-Control-VR    10.16.64.5/32     
+[ok][2018-11-20 11:24:48]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:58:27.843 - INFO - +-- END KW: CPE2.Get Interface Status (1210)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:27.843 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=up ]
+20181120 16:58:27.845 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:27.846 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:27.847 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:27.848 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:27.848 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:27.849 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:27.850 - INFO - +---- END KW: BuiltIn.Should Contain (1)
+20181120 16:58:27.850 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20181120 16:58:27.851 - INFO - +-- END KW: CHECK RESULT (8)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:27.851 - INFO - +-- START KW: CPE2.Get Interface Status [ intf_name=${cpe2['ptvi_intf_wc2']} ]
+20181120 16:58:28.053 - DEBUG - read_channel:
+20181120 16:58:28.054 - DEBUG - write_channel: show interfaces brief | tab | match ptvi33
+20181120 16:58:28.054 - DEBUG - read_channel:
+20181120 16:58:28.255 - DEBUG - read_channel: show interfaces
+20181120 16:58:28.255 - DEBUG - read_channel:
+20181120 16:58:28.456 - DEBUG - read_channel:  brief | tab | match
+20181120 16:58:28.457 - DEBUG - read_channel:
+20181120 16:58:28.657 - DEBUG - read_channel:  ptvi33
+20181120 16:58:28.658 - DEBUG - read_channel:
+20181120 16:58:28.858 - DEBUG - read_channel: ptvi33       n/a                up    up     2       IPC00012-Control-VR    10.16.64.6/32     
+[ok][2018-11-20 11:24:49]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:58:28.859 - INFO - ${result} = show interfaces brief | tab | match ptvi33
+ptvi33       n/a                up    up     2       IPC00012-Control-VR    10.16.64.6/32     
+[ok][2018-11-20 11:24:49]
+admin@FEEFAUTO-CPE27-cli>
+20181120 16:58:28.860 - INFO - +-- END KW: CPE2.Get Interface Status (1008)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:28.860 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=up ]
+20181120 16:58:28.862 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:28.863 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:28.863 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:28.864 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:28.865 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:28.866 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:28.867 - INFO - +---- END KW: BuiltIn.Should Contain (2)
+20181120 16:58:28.867 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (3)
+20181120 16:58:28.867 - INFO - +-- END KW: CHECK RESULT (7)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:28.868 - INFO - +-- START KW: CPE1.Get Bgp Nbr Status [ nbr_ip=${cpe1['WC1_ESP_IP']} ]
+20181120 16:58:29.069 - DEBUG - read_channel:
+20181120 16:58:29.070 - DEBUG - write_channel: show bgp neighbor org IPC00012 brief IPC00012-Control-VR | match 10.16.64.5
+20181120 16:58:29.070 - DEBUG - read_channel:
+20181120 16:58:29.271 - DEBUG - read_channel: show bgp
+20181120 16:58:29.272 - DEBUG - read_channel:
+20181120 16:58:29.472 - DEBUG - read_channel:  neighbor org IPC00012
+20181120 16:58:29.473 - DEBUG - read_channel:
+20181120 16:58:29.673 - DEBUG - read_channel:  brief IPC00012-Control-VR
+20181120 16:58:29.674 - DEBUG - read_channel:
+20181120 16:58:29.875 - DEBUG - read_channel:  | match
+20181120 16:58:29.875 - DEBUG - read_channel:
+20181120 16:58:30.076 - DEBUG - read_channel:  10.16.64.5
+20181120 16:58:30.077 - DEBUG - read_channel:
+20181120 16:58:30.277 - DEBUG - read_channel: 10.16.64.5      1d04h19m   Established     403          14      39240        179
+20181120 16:58:30.278 - DEBUG - read_channel:
+20181120 16:58:30.478 - DEBUG - read_channel: [ok][2018-11-20 11:24:50]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:30.479 - INFO - ${result} = show bgp neighbor org IPC00012 brief IPC00012-Control-VR | match 10.16.64.5
+10.16.64.5      1d04h19m   Established     403          14      39240        179
+[ok][2018-11-20 11:24:50]
+admin@FEEFAUTO-CP...
+20181120 16:58:30.480 - INFO - +-- END KW: CPE1.Get Bgp Nbr Status (1612)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:30.480 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=${est} ]
+20181120 16:58:30.482 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:30.484 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:30.484 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:30.485 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:30.486 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:30.487 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:30.488 - INFO - +---- END KW: BuiltIn.Should Contain (1)
+20181120 16:58:30.488 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20181120 16:58:30.489 - INFO - +-- END KW: CHECK RESULT (9)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:30.489 - INFO - +-- START KW: CPE1.Get Bgp Nbr Status [ nbr_ip=${cpe1['WC2_ESP_IP']} ]
+20181120 16:58:30.691 - DEBUG - read_channel:
+20181120 16:58:30.692 - DEBUG - write_channel: show bgp neighbor org IPC00012 brief IPC00012-Control-VR | match 10.16.64.6
+20181120 16:58:30.692 - DEBUG - read_channel:
+20181120 16:58:30.893 - DEBUG - read_channel: show bgp
+20181120 16:58:30.893 - DEBUG - read_channel:
+20181120 16:58:31.094 - DEBUG - read_channel:  neighbor org IPC00012
+20181120 16:58:31.094 - DEBUG - read_channel:
+20181120 16:58:31.295 - DEBUG - read_channel:  brief IPC00012-Control-VR
+20181120 16:58:31.296 - DEBUG - read_channel:
+20181120 16:58:31.496 - DEBUG - read_channel:  | match
+20181120 16:58:31.497 - DEBUG - read_channel:
+20181120 16:58:31.698 - DEBUG - read_channel:  10.16.64.6
+20181120 16:58:31.698 - DEBUG - read_channel:
+20181120 16:58:31.899 - DEBUG - read_channel: 10.16.64.6      1d04h19m   Established     399          14      33349        179
+[ok][2018-11-20 11:24:51]
+admin@FEEFAUTO-CPE26-cli>
+20181120 16:58:31.900 - INFO - ${result} = show bgp neighbor org IPC00012 brief IPC00012-Control-VR | match 10.16.64.6
+10.16.64.6      1d04h19m   Established     399          14      33349        179
+[ok][2018-11-20 11:24:51]
+admin@FEEFAUTO-CP...
+20181120 16:58:31.901 - INFO - +-- END KW: CPE1.Get Bgp Nbr Status (1412)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20181120 16:58:31.901 - INFO - +-- START KW: CHECK RESULT [ actual=${result} | expected=${est} ]
+20181120 16:58:31.903 - INFO - +--- START KW: BuiltIn.Log To Console [ ${actual} ]
+20181120 16:58:31.904 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:31.904 - INFO - +--- START KW: BuiltIn.Log To Console [ ${expected} ]
+20181120 16:58:31.905 - INFO - +--- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:31.906 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ should contain | ${actual} | ${expected} ]
+20181120 16:58:31.907 - INFO - +---- START KW: BuiltIn.Should Contain [ ${actual} | ${expected} ]
+20181120 16:58:31.908 - INFO - +---- END KW: BuiltIn.Should Contain (1)
+20181120 16:58:31.908 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20181120 16:58:31.909 - INFO - +-- END KW: CHECK RESULT (8)
+------------------------------------------------------------------------------
+20181120 16:58:31.910 - INFO - +- END TEST: Testcase: SDWAN to SDWAN connectivity check both links (7919)
+------------------------------------------------------------------------------
+20181120 16:58:31.911 - INFO - +- START TEARDOWN: CLEANUP [ ]
+20181120 16:58:31.912 - INFO - +-- START KW: BuiltIn.Log To Console [ "sasasa" ]
+20181120 16:58:31.913 - INFO - +-- END KW: BuiltIn.Log To Console (1)
+20181120 16:58:31.913 - INFO - +- END TEARDOWN: CLEANUP (2)
+==============================================================================
+20181120 16:58:31.916 - INFO - + END SUITE: SINGLE CPE HYBRID SOLUTION TEST (114164)
+==============================================================================

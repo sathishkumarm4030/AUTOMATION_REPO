@@ -411,9 +411,9 @@ class VersaCommands:
 
     def cpe_onboard_call(self):
         cpe_shell_login = self.shell_login()
-        print cpe_shell_login.send_command_expect('sudo bash', expect_string='password')
-        print cpe_shell_login.send_command_expect('versa123', expect_string='#')
-        print cpe_shell_login.send_command_expect('exit', expect_string='\$')
+        # print cpe_shell_login.send_command_expect('sudo bash', expect_string='password')
+        # print cpe_shell_login.send_command_expect('versa123', expect_string='#')
+        # print cpe_shell_login.send_command_expect('exit', expect_string='\$')
         print cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password:')
         print cpe_shell_login.send_command_expect('versa123', expect_string='CLI now allowed')
         print cpe_shell_login.send_command_expect('cli', expect_string='>')
@@ -527,17 +527,17 @@ class VersaCommands:
 
 def main():
     print datetime.now()
-    # cpe1 = VersaCommands('C1_MUM', fileDir + "/Topology/Devices.csv")
+    cpe1 = VersaCommands('C1_MUM', fileDir + "/Topology/Devices.csv")
     # cpe1.create_PS_and_DG()
     # cpe1.pre_onboard_work()
-    # cpe1.cpe_onboard_call()
-    # cpe1_dev_info_on_vd =  cpe1.get_device_info()
-    # print cpe1_dev_info_on_vd
-    # cpe2 = VersaCommands('C2_MUM', fileDir + "/Topology/Devices.csv")
-    # cpe2.pre_onboard_work()
-    # cpe2.cpe_onboard_call()
-    # cpe2_dev_info_on_vd =  cpe2.get_device_info()
-    # print cpe2_dev_info_on_vd
+    cpe1.cpe_onboard_call()
+    cpe1_dev_info_on_vd =  cpe1.get_device_info()
+    print cpe1_dev_info_on_vd
+    cpe2 = VersaCommands('C2_MUM', fileDir + "/Topology/Devices.csv")
+    cpe2.pre_onboard_work()
+    cpe2.cpe_onboard_call()
+    cpe2_dev_info_on_vd =  cpe2.get_device_info()
+    print cpe2_dev_info_on_vd
     VM1 = VersaCommands('VM1_MUM', fileDir + "/Topology/Devices.csv")
     VM2 = VersaCommands('VM2_MUM', fileDir + "/Topology/Devices.csv")
     VM1_data = VM1.get_data_dict()

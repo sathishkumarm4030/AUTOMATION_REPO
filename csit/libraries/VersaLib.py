@@ -57,6 +57,9 @@ class VersaLib:
         self.start_vlan = int(self.start_vlan)
         # for vlan in range(self.start_vlan'], self.start_vlan']+10):
         #     print vlan
+        self.data_dict = {}
+        for i, k  in self.csv_dict[self.device_name].iteritems():
+            self.data_dict[i] = k
         self.set_network_items(self.Start_lan_ip_subnet)
         self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
         if self.device_type == 'versa':
@@ -66,48 +69,72 @@ class VersaLib:
             self.vxlan_tvi_interface = self.ORG_ID * 2
             self.esp_tvi_interface = self.ORG_ID * 2 +1
             self.start_vrf_id = self.ORG_ID * 10 + 120
+            self.ptvi_intf_wc1 = "ptvi" + str(self.ORG_ID * 2)
+            self.ptvi_intf_wc2 = "ptvi" + str(self.ORG_ID * 2 + 1)
             self.vddata = csv_data_read.loc[csv_data_read['DUTs'] == 'VD1']
             self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
             self.vddata_dict = {}
             for i, k  in self.vdcsv_dict['VD1'].iteritems():
                 self.vddata_dict[i] = k
             self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
+        # print self.data_dict
+        self.data_dict['vlans'] = []
+        self.data_dict['start_vlan'] = int(self.data_dict['start_vlan'])
+        if self.data_dict['device_type'] == 'versa':
+            self.data_dict['ORG_ID'] = int(self.data_dict['ORG_ID'])
+            self.data_dict['Site_id'] = int(self.data_dict['Site_id'])
+            self.data_dict['LCC'] = int(self.data_dict['LCC'])
+            self.data_dict['vxlan_tvi_interface'] = self.data_dict['ORG_ID'] * 2
+            self.data_dict['esp_tvi_interface'] = self.data_dict['ORG_ID'] * 2 +1
+            self.data_dict['start_vrf_id'] = self.data_dict['ORG_ID'] * 10 + 120
+            self.data_dict['ptvi_intf_wc1'] = "ptvi" + str(self.ORG_ID * 2)
+            self.data_dict['ptvi_intf_wc2'] = "ptvi" + str(self.ORG_ID * 2 + 1)
         logger.info("intialized", also_console=True)
 
     def get_data_dict(self):
-        return self.data_dict
+        return self.__dict__
 
     def set_vlan_items(self, start_vlan):
         self.lan_vlan = []
+        self.data_dict['lan_vlan'] = []
         self.lan = {}
         vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
         for i in range(1, 11):
             self.lan[i] = {}
             lan_value = next(vlan_id_genr)
             self.lan_vlan.append(lan_value)
+            self.data_dict['lan_vlan'].append(lan_value)
             self.lan[i]['vlan'] = lan_value
         return
 
+    # def set_vlan_items(self, start_vlan):
+    #     self.data_dict['lan_vlan'] = []
+    #     vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
+    #     for i in range(1, 11):
+    #         nw_addr = next(vlan_id_genr)
+    #         self.data_dict['lan_vlan'].append(nw_addr)
+    #     return
+
+
     def set_network_items(self, start_lan_ip_subnet):
         self.set_vlan_items(self.start_vlan)
-        self.lan_network = {}
-        self.lan_first_host = {}
-        self.lan_second_host = {}
-        self.lan_netmask = {}
+        self.data_dict['lan_network'] = {}
+        self.data_dict['lan_first_host'] = {}
+        self.data_dict['lan_second_host'] = {}
+        self.data_dict['lan_netmask'] = {}
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
-        # self.lan_network']['1'] = network
-        # n = ipaddress.ip_network(network)
-        # self.lan_first_host']['1'] = str(n[1])
-        # self.lan_second_host']['1'] = str(n[2])
         nw_addr = network
-        # for i in self.lan_vlan:
-        #     self.lan_network[i] = nw_addr
-        #     n = ipaddress.ip_network(nw_addr)
-        #     self.lan_first_host[i] = str(n[1])
-        #     self.lan_second_host[i] = str(n[2])
-        #     self.lan_netmask[i] = str(n.netmask)
-        #     nw_addr = next(network_address)
+        for i in self.lan_vlan:
+            self.data_dict['lan_network'][i] = nw_addr
+            n = ipaddress.ip_network(nw_addr)
+            self.data_dict['lan_first_host'][i] = str(n[1])
+            self.data_dict['lan_second_host'][i] = str(n[2])
+            self.data_dict['lan_netmask'][i] = str(n.netmask)
+            nw_addr = next(network_address)
+        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network_address = (network + (i + 1) * network.size() for i in it.count())
+        nw_addr = network
         for i in range(1, 11):
             self.lan[i]['nw'] = nw_addr
             n = ipaddress.ip_network(nw_addr)
@@ -117,27 +144,72 @@ class VersaLib:
             nw_addr = next(network_address)
         return
 
+
+
+    # def set_network_items(self, start_lan_ip_subnet):
+    #     self.set_vlan_items(self.start_vlan)
+    #     self.lan_network = {}
+    #     self.lan_first_host = {}
+    #     self.lan_second_host = {}
+    #     self.lan_netmask = {}
+    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network_address = (network + (i + 1) * network.size() for i in it.count())
+    #     nw_addr = network
+    #     for i in range(1, 11):
+    #         self.lan[i]['nw'] = nw_addr
+    #         n = ipaddress.ip_network(nw_addr)
+    #         self.lan[i]['first_host'] = str(n[1])
+    #         self.lan[i]['second_host'] = str(n[2])
+    #         self.lan[i]['netmask'] = str(n.netmask)
+    #         nw_addr = next(network_address)
+    #     return
+
+
     def set_peer_network_items(self, start_lan_ip_subnet):
         self.set_vlan_items(self.start_vlan)
-        self.peer_lan_network = {}
-        self.peer_lan_first_host = {}
-        self.peer_lan_second_host = {}
-        self.peer_lan_netmask = {}
+        self.data_dict['peer_lan_network'] = {}
+        self.data_dict['peer_lan_first_host'] = {}
+        self.data_dict['peer_lan_second_host'] = {}
+        self.data_dict['peer_lan_netmask'] = {}
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
-        # self.lan_network']['1'] = network
-        # n = ipaddress.ip_network(network)
-        # self.lan_first_host']['1'] = str(n[1])
-        # self.lan_second_host']['1'] = str(n[2])
         nw_addr = network
         for i in self.lan_vlan:
-            self.peer_lan_network[i] = nw_addr
+            self.data_dict['peer_lan_network'][i] = nw_addr
             n = ipaddress.ip_network(nw_addr)
-            self.peer_lan_first_host[i] = str(n[1])
-            self.peer_lan_second_host[i] = str(n[2])
-            self.peer_lan_netmask[i] = str(n.netmask)
+            self.data_dict['peer_lan_first_host'][i] = str(n[1])
+            self.data_dict['peer_lan_second_host'][i] = str(n[2])
+            self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
+            nw_addr = next(network_address)
+        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network_address = (network + (i + 1) * network.size() for i in it.count())
+        nw_addr = network
+        for i in range(1, 11):
+            self.lan[i]['peer_nw'] = nw_addr
+            n = ipaddress.ip_network(nw_addr)
+            self.lan[i]['peer_first_host'] = str(n[1])
+            self.lan[i]['peer_second_host'] = str(n[2])
+            self.lan[i]['peer_netmask'] = str(n.netmask)
             nw_addr = next(network_address)
         return
+
+    # def set_peer_network_items(self, start_lan_ip_subnet):
+    #     self.set_vlan_items(self.start_vlan)
+    #     self.peer_lan_network = {}
+    #     self.peer_lan_first_host = {}
+    #     self.peer_lan_second_host = {}
+    #     self.peer_lan_netmask = {}
+    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network_address = (network + (i + 1) * network.size() for i in it.count())
+    #     nw_addr = network
+    #     for i in self.lan_vlan:
+    #         self.peer_lan_network[i] = nw_addr
+    #         n = ipaddress.ip_network(nw_addr)
+    #         self.peer_lan_first_host[i] = str(n[1])
+    #         self.peer_lan_second_host[i] = str(n[2])
+    #         self.peer_lan_netmask[i] = str(n.netmask)
+    #         nw_addr = next(network_address)
+    #     return
 
 
 
@@ -198,12 +270,12 @@ class VersaLib:
 
     def cross_login(self):
         self.cnc = self.login(vd_login='yes')
-        self.cnc.write_channel("ssh " + self.data_dict["username"] + "@" + self.data_dict["ip"] + "\n")
+        self.cnc.write_channel("ssh " + self.username + "@" + self.ESP_IP + "\n")
         time.sleep(5)
         output = self.cnc.read_channel()
         print(output)
         if 'assword:' in output:
-            self.cnc.write_channel(self.data_dict["password"] + "\n")
+            self.cnc.write_channel(self.password + "\n")
             time.sleep(5)
             output = self.cnc.read_channel()
             print(output)
@@ -231,7 +303,7 @@ class VersaLib:
             redispatch(self.cnc, device_type='versa')
         except ValueError as Va:
             print(Va)
-            print("Not able to get router prompt from CPE" + self.data_dict["ip"] + " CLI. please check")
+            print("Not able to get router prompt from CPE" + self.ESP_IP + " CLI. please check")
             return "Redispatch not Success"
         time.sleep(2)
         return self.cnc
@@ -259,6 +331,32 @@ class VersaLib:
         # print data
         # taskid = str(data['output']['result']['task']['task-id'])
         # return taskid
+
+
+    def put_operation(self, url, headers, body=""):
+        print body
+        if body != "":
+            json_data = json.loads(body)
+        else:
+            json_data = ""
+        response = requests.put(self.vdhead + url,
+                                 auth=(self.vddata_dict['GUIusername'], self.vddata_dict['GUIpassword']),
+                                 headers=headers,
+                                 json=json_data,
+                                 verify=False)
+        print response.content
+        print response
+
+        if response.status_code == '200':
+            return 'PASS'
+        else:
+            print response.content
+            return 'FAIL'
+        # data = response.json()
+        # print data
+        # taskid = str(data['output']['result']['task']['task-id'])
+        # return taskid
+
 
     def rest_operation_ret_task_id(self, url, headers, body=""):
         if body != "":
@@ -381,6 +479,13 @@ class VersaLib:
             time.sleep(20)
             self.get_device_info()
         return self.dev_dict
+
+    def get_interface_data_from_vd(self, interface_name):
+        self.vni_interface_url = "/api/config/devices/device/" + self.Device_name + "/config/interfaces/vni/%22" + interface_name + "%22"
+        data1 = self.get_operation(self.vni_interface_url, headers3)
+        return data1
+
+
 
     def create_template(self, template_name):
         template = env.get_template(template_name)
@@ -521,34 +626,76 @@ class VersaLib:
             if element in kwargs.keys():
                 cmd = cmd + " " + element.replace('_', '-') + " " + str(kwargs[element])
         print cmd
-        output = self.shell_nc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         print output
         return str(" 0% packet loss" in output)
+
+
+    def get_interface_status(self, intf_name):
+        cmd = "show interfaces brief | tab | match " + str(intf_name)
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+    def get_bgp_nbr_status(self, nbr_ip):
+        cmd = "show bgp neighbor org " + self.ORG_NAME + " brief " + self.ORG_NAME+"-Control-VR | match " + nbr_ip
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
 
     def send_commands_and_expect(self, cmds, expect_string=">|%"):
         for cmd in cmds.split("\n"):
             print cmd
-            output = self.shell_nc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
+            output = self.cnc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
                                                  strip_command=False)
         logger.info(output, also_console=True)
         return output
 
+    def shutdown_interface(self, intf_name):
+        data = self.get_interface_data_from_vd(intf_name)
+        data['vni']['enable'] = False
+        data1 = json.dumps(data)
+        self.put_operation(self.vni_interface_url, headers2, data1)
+
+    def unshutdown_interface(self, intf_name):
+        data = self.get_interface_data_from_vd(intf_name)
+        data['vni']['enable'] = True
+        data1 = json.dumps(data)
+        self.put_operation(self.vni_interface_url, headers2, data1)
+
 def main():
     print datetime.now()
-    cpe1 = VersaLib('C1_MUM', fileDir + "/Topology/Devices.csv")
-    print cpe1.ESP_IP
+    cpe1 = VersaLib('CPE1_MUM', fileDir + "/Topology/Devices.csv")
+    # print cpe1.ESP_IP
+    # val =  cpe1.get_data_dict()
+    # print val['ORG_NAME']
     # cpe1.create_PS_and_DG('Post_staging_template.j2', 'Device_group_template.j2', 'PS_main_template_modify.j2')
     # cpe1.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
     # cpe1.cpe_onboard_call()
-    #cpe1_dev_info_on_vd =  cpe1.get_device_info()
-    #print cpe1_dev_info_on_vd
+    # cpe1_dev_info_on_vd =  cpe1.get_device_info()
+    # print cpe1_dev_info_on_vd
+    cpe1.shutdown_interface(cpe1.MPLS_WAN_INTF)
+    time.sleep(5)
+    print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
+    time.sleep(20)
+    cpe1.unshutdown_interface(cpe1.MPLS_WAN_INTF)
+    time.sleep(5)
+    print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
     # cpe1_shell_nc =  cpe1.shell_login()
+    # cpe1_vd_nc = cpe1.cross_login()
+    # vd_nc = cpe1.login(vd_login='yes')
+    # print cpe1_vd_nc
     # print cpe1_shell_nc.send_command_expect("cli", expect_string=">", strip_prompt=False, strip_command=False)
     # result = cpe1.ping(cpe1.data_dict['peer_lan_first_host'][cpe1.data_dict['lan_vlan'][0]], count=4, routing_instance=routing_instances[0], source=cpe1.data_dict['lan_first_host'][cpe1.data_dict['lan_vlan'][0]])
     # print "*" * 20 + "\n" +result
     # result = cpe1.send_commands_and_expect("show interfaces brief | match ptvi33 | tab")
     # print "*" * 20 + "\n" + result
-    cpe2 = VersaLib('C2_MUM', fileDir + "/Topology/Devices.csv")
+    ##########################################
+    # result = cpe1.ping(cpe1.data_dict['peer_lan_first_host'][cpe1.data_dict['lan_vlan'][0]], count=4, routing_instance=routing_instances[0], source=cpe1.data_dict['lan_first_host'][cpe1.data_dict['lan_vlan'][0]])
+    # print "*" * 20 + "\n" +result
+    # result = cpe1.send_commands_and_expect("show interfaces brief | match ptvi33 | tab")
+    # print "*" * 20 + "\n" + result
+    # ##############################################
+    # cpe2 = VersaLib('C2_MUM', fileDir + "/Topology/Devices.csv")
     # cpe2.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
     # cpe2.cpe_onboard_call()
     # cpe2_dev_info_on_vd =  cpe2.get_device_info()

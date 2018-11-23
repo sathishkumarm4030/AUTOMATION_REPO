@@ -538,11 +538,11 @@ class VersaLib:
 def main():
     print datetime.now()
     cpe1 = VersaLib('C1_MUM', fileDir + "/Topology/Devices.csv")
-    # cpe1.create_PS_and_DG('Post_staging_template.j2', 'Device_group_template.j2', 'PS_main_template_modify.j2')
-    # cpe1.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
-    # cpe1.cpe_onboard_call()
-    #cpe1_dev_info_on_vd =  cpe1.get_device_info()
-    #print cpe1_dev_info_on_vd
+    cpe1.create_PS_and_DG('Post_staging_template.j2', 'Device_group_template.j2', 'PS_main_template_modify.j2')
+    cpe1.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
+    cpe1.cpe_onboard_call()
+    cpe1_dev_info_on_vd =  cpe1.get_device_info()
+    print cpe1_dev_info_on_vd
     cpe1_shell_nc =  cpe1.shell_login()
     print cpe1_shell_nc.send_command_expect("cli", expect_string=">", strip_prompt=False, strip_command=False)
     result = cpe1.ping(cpe1.data_dict['peer_lan_first_host'][cpe1.data_dict['lan_vlan'][0]], count=4, routing_instance=routing_instances[0], source=cpe1.data_dict['lan_first_host'][cpe1.data_dict['lan_vlan'][0]])
