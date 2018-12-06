@@ -549,7 +549,8 @@ class VersaLib:
     def device_config_commands_wo_split(self, nc_handler, cmds):
         # nc_handler.config_mode(config_command='config private')
         # nc_handler.check_config_mode()
-        return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, exit_config_mode=False)
+        return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
+                                          max_loops=5000, delay_factor=0.0001, exit_config_mode=False)
 
 
     def linux_device_config_commands(self, nc_handler, cmds, expect_string="\$"):
@@ -734,17 +735,22 @@ class VersaLib:
                 continue
             # print Solution_type[dev_dict['SITE_TYPE']]
             device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
-            # main_logger.info(device_cmds)
+            main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
             main_logger.info(result)
-            if "Commit complete." in result:
-                res_check =  "Commit success"
-            elif "syntax error: element does not exist" in result:
-                res_check = "syntax error. please check log"
-            elif "No modifications to commit." in result:
-                res_check = "No modifications to commit."
+            if "syntax error:" in result:
+                res_check = "syntax error. please check the command variables in log file"
             else:
-                res_check = "commit failed"
+                commit_result = nc.send_command_expect("commit", \
+                                                       expect_string='%', \
+                                                       strip_prompt=False, strip_command=False, max_loops=5000)
+                main_logger.info(commit_result)
+                if "No modifications to commit." in commit_result:
+                    res_check = "No modifications to commit."
+                elif "Commit complete." in commit_result:
+                    res_check =  "Commit success"
+                else:
+                    res_check = "commit failed"
             result_dict[dev_dict['DEVICE_NAME']] = res_check
             # main_logger.info(result_dict)
             main_logger.info("CONFIG_RESULT:")

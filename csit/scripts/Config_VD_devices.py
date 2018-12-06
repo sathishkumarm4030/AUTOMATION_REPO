@@ -1,8 +1,8 @@
-from csit.libraries.VersaLib import VersaLib
+import sys
 import os
 import pandas as pd
 import time
-
+import getpass
 
 
 if __name__ == "__main__":
@@ -10,27 +10,31 @@ if __name__ == "__main__":
 else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
+print fileDir
+Par_Dir = os.path.dirname(fileDir)
+print Par_Dir
+sys.path.append(Par_Dir)
+
+from csit.libraries.VersaLib import VersaLib
+
 def get_vd_details():
     global cpe_list
-    # ip = raw_input("Enter Versa Director IP address:\n")
-    # print "Versa director IP:" + ip
-    # ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
-    # print "Versa director Username:" + ldap_user
-    # ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
-    # user = raw_input("Enter Username for making REST actions to Versa Director :\n")
-    # print "Versa director Username:" + user
-    # passwd = getpass.getpass("Enter REST Password:\n")
-    ip = '10.91.116.35'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Sathish'
-    passwd = 'Jan*1234'
-    cpe_user = 'admin'
-    cpe_passwd = 'versa123'
+    ip = raw_input("Enter Versa Director IP address:\n")
+    print "Versa director IP:" + ip
+    ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
+    print "Versa director Username:" + ldap_user
+    ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
+    # ip = '10.91.116.35'
+    # ldap_user = 'admin'
+    # ldap_passwd = 'versa123'
+    # user = 'Sathish'
+    # passwd = 'Jan*1234'
+    # cpe_user = 'admin'
+    # cpe_passwd = 'versa123'
     # node_user = 'admin'
     # node_passwd = 'versa123'
-    return {'mgmt_ip' : ip, 'GUIusername': user, 'GUIpassword': passwd, 'username' : ldap_user,\
-            'password' : ldap_passwd, 'cpe_user' : cpe_user, 'cpe_passwd' : cpe_passwd}
+    return {'mgmt_ip' : ip, 'username' : ldap_user,\
+            'password' : ldap_passwd}
 
 
 
