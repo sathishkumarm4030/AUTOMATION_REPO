@@ -1,0 +1,13 @@
+delete device template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies Default-Policy
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ {{ local_ckt_pri_1_intfs }} ]
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ {{ remote_ckt_pri_1_intf }} ]
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ {{ local_ckt_pri_2_intfs }} ]
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ {{ remote_ckt_pri_2_intf }} ]
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+commit

@@ -9,7 +9,7 @@ if __name__ == "__main__":
 else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
-print fileDir
+# print fileDir
 
 
 interface_template = os.path.join(fileDir, 'Utils/TEXTFSM/versa_interface_template')
@@ -35,6 +35,31 @@ headers4 = {'Content-Type': 'application/json'}
 
 
 routing_instances = ['LAN1-VRF', 'LAN2-VRF', 'LAN3-VRF', 'LAN4-VRF', 'LAN5-VRF', 'LAN6-VRF', 'LAN7-VRF', 'LAN8-VRF', 'LAN9-VRF', 'LAN10-VRF']
+
+Solution_type = {
+    'internet' : {
+        'local_ckt_pri_1_intfs' : "INT-WAN",
+        'remote_ckt_pri_1_intf' : "INT-WAN",
+        'local_ckt_pri_2_intfs' : "INT-WAN, INT-WAN1, INT-WAN2",
+        'remote_ckt_pri_2_intf' : "LTE-WAN",
+                  },
+    'hybrid' : {
+        'local_ckt_pri_1_intfs' : "MPLS-WAN, INT-WAN",
+        'remote_ckt_pri_1_intf' : "MPLS-WAN, MPLS-WAN1, MPLS-WAN2, INT-WAN, INT-WAN1, INT-WAN2",
+        'local_ckt_pri_2_intfs' : "INT-WAN",
+        'remote_ckt_pri_2_intf' : "LTE-WAN",
+                  },
+    'dual-internet': {
+        'local_ckt_pri_1_intfs': "INT-WAN1, INT-WAN2",
+        'remote_ckt_pri_1_intf': "INT-WAN, INT-WAN1, INT-WAN2",
+        'local_ckt_pri_2_intfs': "INT-WAN1, INT-WAN2",
+        'remote_ckt_pri_2_intf': "LTE-WAN",
+    },
+
+}
+
+
+
 
 #Commands
 cmd1 = 'show interfaces brief | tab | nomore'

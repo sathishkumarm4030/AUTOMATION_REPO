@@ -1,4 +1,0 @@
-DUTs,mgmt_ip,username,password,device_type,GUIusername,GUIpassword,espip
-C1,10.91.116.233,admin,versa123,versa,,,20.20.16.26
-C2,10.91.116.234,admin,versa123,versa,,,20.20.16.27
-VD1,10.91.116.36,admin,versa123,versa,Sathish,Jan*1234,

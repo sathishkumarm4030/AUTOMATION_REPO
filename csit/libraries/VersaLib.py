@@ -29,15 +29,58 @@ import re
 from datetime import datetime
 from CalcIPV4Network import CalcIPv4Network
 from robot.api import logger
+import math
+import logging
+import logging.handlers
+import errno
+import csv
+currtime = str(datetime.now())
+currtime = currtime.replace(" ", "_").replace(":", "_").replace("-", "_").replace(".", "_")
+
+
+
 
 if __name__ == "__main__":
     fileDir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
-logger.info(fileDir, also_console=True)
+logfile_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__'))) + "/LOGS/"+ currtime + "/"
+if not os.path.exists(os.path.dirname(logfile_dir)):
+    try:
+        os.mkdir(os.path.dirname(logfile_dir))
+    except OSError as exc:  # Guard against race condition
+        if exc.errno != errno.EEXIST:
+            raise
 
-file_loader = FileSystemLoader(fileDir +'/csit/libraries/J2_temps')
+# logger.info(fileDir, also_console=True)
+
+def setup_logger(name, filename, level=logging.DEBUG):
+    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    formatter1 = logging.Formatter("%(message)s")
+    console = logging.StreamHandler()
+    console.setLevel(logging.DEBUG)
+    console.setFormatter(formatter1)
+    logging.getLogger('').addHandler(console)
+    log_file = logfile_dir + filename  + ".log"
+    handler = logging.FileHandler(log_file)
+    handler.setFormatter(formatter)
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    logger = logging.getLogger(name)
+    return logger
+
+def write_result_from_dict(results):
+    data_header = ['Device_name', 'Config_Result']
+    with open(logfile_dir + 'RESULT.csv', 'w') as file_writer:
+        writer = csv.writer(file_writer)
+        writer.writerow(data_header)
+        for k, v in results.items():
+            writer.writerow([k, v])
+    print "Result stored in : " + logfile_dir + 'RESULT.csv'
+
+file_loader = FileSystemLoader(fileDir +'/csit/libraries/J2_temps/PROD_CONFIG')
 if __name__ == "__main__":
     file_loader = FileSystemLoader('./J2_temps')
 env = Environment(loader=file_loader)
@@ -46,49 +89,48 @@ env = Environment(loader=file_loader)
 
 class VersaLib:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
-    def __init__(self, device_name, topofile):
-        logger.info('intializing', also_console=True)
-        csv_data_read = pd.read_csv(topofile, dtype=object)
-        self.device_name = device_name
-        self.data = csv_data_read.loc[csv_data_read['DUTs'] == device_name]
-        self.csv_dict = self.data.set_index('DUTs').T.to_dict()
-        for k, v in self.csv_dict[self.device_name].iteritems(): exec("self."+ k+'=v')
-        self.vlans = []
-        self.start_vlan = int(self.start_vlan)
-        # for vlan in range(self.start_vlan'], self.start_vlan']+10):
-        #     print vlan
-        self.data_dict = {}
-        for i, k  in self.csv_dict[self.device_name].iteritems():
-            self.data_dict[i] = k
-        self.set_network_items(self.Start_lan_ip_subnet)
-        self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
-        if self.device_type == 'versa':
-            self.ORG_ID = int(self.ORG_ID)
-            self.Site_id = int(self.Site_id)
-            self.LCC = int(self.LCC)
-            self.vxlan_tvi_interface = self.ORG_ID * 2
-            self.esp_tvi_interface = self.ORG_ID * 2 +1
-            self.start_vrf_id = self.ORG_ID * 10 + 120
-            self.ptvi_intf_wc1 = "ptvi" + str(self.ORG_ID * 2)
-            self.ptvi_intf_wc2 = "ptvi" + str(self.ORG_ID * 2 + 1)
-            self.vddata = csv_data_read.loc[csv_data_read['DUTs'] == 'VD1']
-            self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
-            self.vddata_dict = {}
-            for i, k  in self.vdcsv_dict['VD1'].iteritems():
-                self.vddata_dict[i] = k
-            self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
-        # print self.data_dict
-        self.data_dict['vlans'] = []
-        self.data_dict['start_vlan'] = int(self.data_dict['start_vlan'])
-        if self.data_dict['device_type'] == 'versa':
-            self.data_dict['ORG_ID'] = int(self.data_dict['ORG_ID'])
-            self.data_dict['Site_id'] = int(self.data_dict['Site_id'])
-            self.data_dict['LCC'] = int(self.data_dict['LCC'])
-            self.data_dict['vxlan_tvi_interface'] = self.data_dict['ORG_ID'] * 2
-            self.data_dict['esp_tvi_interface'] = self.data_dict['ORG_ID'] * 2 +1
-            self.data_dict['start_vrf_id'] = self.data_dict['ORG_ID'] * 10 + 120
-            self.data_dict['ptvi_intf_wc1'] = "ptvi" + str(self.ORG_ID * 2)
-            self.data_dict['ptvi_intf_wc2'] = "ptvi" + str(self.ORG_ID * 2 + 1)
+
+    def __init__(self, device_name, **kwargs):
+        if kwargs is not None:
+            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+        if 'topofile' in self.__dict__:
+            csv_data_read = pd.read_csv(self.topofile, dtype=object)
+            self.device_name = device_name
+            data = csv_data_read.loc[csv_data_read['DUTs'] == device_name]
+            csv_dict = data.set_index('DUTs').T.to_dict()
+            for k, v in csv_dict[self.device_name].iteritems():
+                if isinstance(v, float):
+                    if math.isnan(v):
+                        continue
+                exec("self."+ k+'=v')
+            # print self.__dict__
+            self.vlans = []
+            if 'start_vlan' in self.__dict__:
+                self.start_vlan = int(self.start_vlan)
+                self.set_network_items(self.Start_lan_ip_subnet)
+                self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
+            if 'ORG_ID' in self.__dict__:
+                self.ORG_ID = int(self.ORG_ID)
+                self.vxlan_tvi_interface = self.ORG_ID * 2
+                self.esp_tvi_interface = self.ORG_ID * 2 +1
+                self.start_vrf_id = self.ORG_ID * 10 + 120
+                self.ptvi_intf_wc1 = "ptvi" + str(self.ORG_ID * 2)
+                self.ptvi_intf_wc2 = "ptvi" + str(self.ORG_ID * 2 + 1)
+            if 'Site_id' in self.__dict__:
+                self.Site_id = int(self.Site_id)
+            if 'LCC' in self.__dict__:
+                self.LCC = int(self.LCC)
+            print 'LCC' in self.__dict__
+            if 'device_type' in self.__dict__:
+                if self.device_type == 'versa_director':
+                    self.vdhead = 'https://' + self.mgmt_ip + ':9182'
+                else:
+                    self.vddata = csv_data_read.loc[csv_data_read['device_type'] == 'versa_director']
+                    self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
+                    self.vddata_dict = {}
+                    for i, k  in self.vdcsv_dict['VD1'].iteritems():
+                        self.vddata_dict[i] = k
+                    self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
         logger.info("intialized", also_console=True)
 
     def get_data_dict(self):
@@ -96,14 +138,14 @@ class VersaLib:
 
     def set_vlan_items(self, start_vlan):
         self.lan_vlan = []
-        self.data_dict['lan_vlan'] = []
+        # self.data_dict['lan_vlan'] = []
         self.lan = {}
         vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
         for i in range(1, 11):
             self.lan[i] = {}
             lan_value = next(vlan_id_genr)
             self.lan_vlan.append(lan_value)
-            self.data_dict['lan_vlan'].append(lan_value)
+            # self.data_dict['lan_vlan'].append(lan_value)
             self.lan[i]['vlan'] = lan_value
         return
 
@@ -118,20 +160,20 @@ class VersaLib:
 
     def set_network_items(self, start_lan_ip_subnet):
         self.set_vlan_items(self.start_vlan)
-        self.data_dict['lan_network'] = {}
-        self.data_dict['lan_first_host'] = {}
-        self.data_dict['lan_second_host'] = {}
-        self.data_dict['lan_netmask'] = {}
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
-        network_address = (network + (i + 1) * network.size() for i in it.count())
-        nw_addr = network
-        for i in self.lan_vlan:
-            self.data_dict['lan_network'][i] = nw_addr
-            n = ipaddress.ip_network(nw_addr)
-            self.data_dict['lan_first_host'][i] = str(n[1])
-            self.data_dict['lan_second_host'][i] = str(n[2])
-            self.data_dict['lan_netmask'][i] = str(n.netmask)
-            nw_addr = next(network_address)
+        # self.data_dict['lan_network'] = {}
+        # self.data_dict['lan_first_host'] = {}
+        # self.data_dict['lan_second_host'] = {}
+        # self.data_dict['lan_netmask'] = {}
+        # network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        # network_address = (network + (i + 1) * network.size() for i in it.count())
+        # nw_addr = network
+        # for i in self.lan_vlan:
+        #     self.data_dict['lan_network'][i] = nw_addr
+        #     n = ipaddress.ip_network(nw_addr)
+        #     self.data_dict['lan_first_host'][i] = str(n[1])
+        #     self.data_dict['lan_second_host'][i] = str(n[2])
+        #     self.data_dict['lan_netmask'][i] = str(n.netmask)
+        #     nw_addr = next(network_address)
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
@@ -166,21 +208,20 @@ class VersaLib:
 
 
     def set_peer_network_items(self, start_lan_ip_subnet):
-        self.set_vlan_items(self.start_vlan)
-        self.data_dict['peer_lan_network'] = {}
-        self.data_dict['peer_lan_first_host'] = {}
-        self.data_dict['peer_lan_second_host'] = {}
-        self.data_dict['peer_lan_netmask'] = {}
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
-        network_address = (network + (i + 1) * network.size() for i in it.count())
-        nw_addr = network
-        for i in self.lan_vlan:
-            self.data_dict['peer_lan_network'][i] = nw_addr
-            n = ipaddress.ip_network(nw_addr)
-            self.data_dict['peer_lan_first_host'][i] = str(n[1])
-            self.data_dict['peer_lan_second_host'][i] = str(n[2])
-            self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
-            nw_addr = next(network_address)
+        # self.data_dict['peer_lan_network'] = {}
+        # self.data_dict['peer_lan_first_host'] = {}
+        # self.data_dict['peer_lan_second_host'] = {}
+        # self.data_dict['peer_lan_netmask'] = {}
+        # network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        # network_address = (network + (i + 1) * network.size() for i in it.count())
+        # nw_addr = network
+        # for i in self.lan_vlan:
+        #     self.data_dict['peer_lan_network'][i] = nw_addr
+        #     n = ipaddress.ip_network(nw_addr)
+        #     self.data_dict['peer_lan_first_host'][i] = str(n[1])
+        #     self.data_dict['peer_lan_second_host'][i] = str(n[2])
+        #     self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
+        #     nw_addr = next(network_address)
         network = CalcIPv4Network(unicode(start_lan_ip_subnet))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
@@ -218,7 +259,6 @@ class VersaLib:
         # print self.data_dict
         return self.data_dict
 
-
     def login(self, **kwargs):
         if 'vd_login' in kwargs and kwargs['vd_login'] == 'yes':
             device_dict= {
@@ -228,9 +268,17 @@ class VersaLib:
                     'password': self.vddata_dict['password'],
                     'port': '22',
                 }
+        elif self.device_type == 'versa_director':
+            device_dict= {
+                    'device_type': 'versa',
+                    'ip': self.mgmt_ip,
+                    'username': self.username,
+                    'password': self.password,
+                    'port': '22',
+                }
         else:
             device_dict = {
-                'device_type': self.device_type,
+                'device_type': 'versa',
                 'ip': self.ESP_IP,
                 'username': self.username,
                 'password': self.password,
@@ -256,7 +304,7 @@ class VersaLib:
         print self.shell_nc
         print self.shell_nc.send_command_expect('sudo bash', expect_string='password')
         print self.shell_nc.send_command_expect('versa123', expect_string='#')
-        print self.shell_nc.send_command_expect('exit', expect_string='\$')
+        print self.shell_nc.send_command_expect('exit', expect_string='\$|#')
         # ur = self.shell_nc.send_command_expect('ls -ltr')
         # print ur
         # time.sleep(5)
@@ -489,14 +537,20 @@ class VersaLib:
 
     def create_template(self, template_name):
         template = env.get_template(template_name)
-        return template.render(self.data_dict)
+        return template.render(self.__dict__)
 
     def device_config_commands(self, nc_handler, cmds):
         nc_handler.config_mode(config_command='config private')
         nc_handler.check_config_mode()
         for cmd in cmds.split("\n"):
             print nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False)
-        nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False)
+        print nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False)
+
+    def device_config_commands_wo_split(self, nc_handler, cmds):
+        # nc_handler.config_mode(config_command='config private')
+        # nc_handler.check_config_mode()
+        return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, exit_config_mode=False)
+
 
     def linux_device_config_commands(self, nc_handler, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
@@ -512,20 +566,20 @@ class VersaLib:
         print cpe_shell_login.send_command_expect('versa123', expect_string='CLI now allowed', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('cli', expect_string='>', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('request erase running-config', expect_string='yes', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect('yes', expect_string='\$', strip_prompt=False, strip_command=False)
-        op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$', strip_prompt=False, strip_command=False)
+        print cpe_shell_login.send_command_expect('yes', expect_string='\$|#', strip_prompt=False, strip_command=False)
+        op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#', strip_prompt=False, strip_command=False)
         while "Stopped" in op or "Netconf traffic yet to be allowed" in op:
             print "process not up. Please wait for it to come up"
-            op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$', strip_prompt=False, strip_command=False)
+            op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#', strip_prompt=False, strip_command=False)
             print op
             time.sleep(10)
         print "After breaking while"
-        print cpe_shell_login.send_command_expect('vsh status', expect_string='\$')
-        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$')
+        print cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#')
+        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#')
         print cpe_shell_login.send_command_expect('vsh set-serialnum ' + self.Serial_Number,
-                                                  expect_string='\$')
-        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$')
-        print cpe_shell_login.send_command_expect(self.Staging_command_template, expect_string='\$')
+                                                  expect_string='\$|#')
+        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#')
+        print cpe_shell_login.send_command_expect(self.Staging_command_template, expect_string='\$|#')
         time.sleep(20)
 
     def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
@@ -662,24 +716,63 @@ class VersaLib:
         data1 = json.dumps(data)
         self.put_operation(self.vni_interface_url, headers2, data1)
 
+    def config_devices_template(self, nc, device_file, command_template_file):
+        start_time = datetime.now()
+        main_logger = setup_logger('Versa-director', 'Config_devices_template')
+        # print device_file
+        # print command_template_file
+        curr_file_dir = os.path.dirname(command_template_file)
+        curr_file_name = os.path.basename(command_template_file)
+        curr_file_loader = FileSystemLoader(curr_file_dir)
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template(curr_file_name)
+        csv_data_read = pd.read_csv(device_file)
+        result_dict = {}
+        for idx, row in csv_data_read.iterrows():
+            dev_dict = row.to_dict()
+            if dev_dict['SITE_TYPE'] == 'mpls':
+                continue
+            # print Solution_type[dev_dict['SITE_TYPE']]
+            device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
+            # main_logger.info(device_cmds)
+            result = self.device_config_commands_wo_split(nc, device_cmds)
+            main_logger.info(result)
+            if "Commit complete." in result:
+                res_check =  "Commit success"
+            elif "syntax error: element does not exist" in result:
+                res_check = "syntax error. please check log"
+            elif "No modifications to commit." in result:
+                res_check = "No modifications to commit."
+            else:
+                res_check = "commit failed"
+            result_dict[dev_dict['DEVICE_NAME']] = res_check
+            # main_logger.info(result_dict)
+            main_logger.info("CONFIG_RESULT:")
+            for k, v in result_dict.iteritems():
+                main_logger.info([k , v])
+        write_result_from_dict(result_dict)
+        main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+        return
+
+
 def main():
     print datetime.now()
-    cpe1 = VersaLib('CPE1_MUM', fileDir + "/Topology/Devices.csv")
+    cpe1 = VersaLib('CPE100_MUM', fileDir + "/Topology/Devices.csv")
     # print cpe1.ESP_IP
     # val =  cpe1.get_data_dict()
     # print val['ORG_NAME']
-    # cpe1.create_PS_and_DG('Post_staging_template.j2', 'Device_group_template.j2', 'PS_main_template_modify.j2')
-    # cpe1.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
+    cpe1.create_PS_and_DG('Post_staging_template.j2', 'Device_group_template.j2', 'PS_main_template_modify.j2')
+    cpe1.pre_onboard_work('Device_template.j2', 'Staging_server_config.j2', 'staging_cpe.j2')
     # cpe1.cpe_onboard_call()
     # cpe1_dev_info_on_vd =  cpe1.get_device_info()
     # print cpe1_dev_info_on_vd
-    cpe1.shutdown_interface(cpe1.MPLS_WAN_INTF)
-    time.sleep(5)
-    print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
-    time.sleep(20)
-    cpe1.unshutdown_interface(cpe1.MPLS_WAN_INTF)
-    time.sleep(5)
-    print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
+    # cpe1.shutdown_interface(cpe1.MPLS_WAN_INTF)
+    # time.sleep(5)
+    # print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
+    # time.sleep(20)
+    # cpe1.unshutdown_interface(cpe1.MPLS_WAN_INTF)
+    # time.sleep(5)
+    # print cpe1.get_interface_data_from_vd(cpe1.MPLS_WAN_INTF)
     # cpe1_shell_nc =  cpe1.shell_login()
     # cpe1_vd_nc = cpe1.cross_login()
     # vd_nc = cpe1.login(vd_login='yes')

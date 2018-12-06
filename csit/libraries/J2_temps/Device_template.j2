@@ -45,7 +45,7 @@
 						},
 						{% for vlan in lan_vlan %}
 						{% set lan_number = loop.index %}
-						{% set value = lan_first_host[vlan] %}
+						{% set value = lan[lan_number][lan_first_host] %}
 						{ "name": "{$v_LAN{{ lan_number }}_IPv4__staticaddress}", "value": "{{ value }}/24", "isAutogeneratable": false},
 						{% endfor %}
 						{
