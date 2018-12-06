@@ -1,4 +1,4 @@
-delete device template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies Default-Policy
+delete device template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan policies sdwan-policy-group Default-Policy
 set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ {{ local_ckt_pri_1_intfs }} ]
 set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ {{ remote_ckt_pri_1_intf }} ]
 set devices template {{ DEVICE_NAME }} config org org-services {{ ORG_NAME }} sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ {{ local_ckt_pri_2_intfs }} ]
